@@ -1,18 +1,19 @@
 # ENG6Project2
 Project Deadlines:
-Deadline #1: March 2nd
-, 9:10 PM One member of each team must sign up during the sign up session.
+Deadline #1: March 2nd, 9:10 PM 
+One member of each team must sign up during the sign up session.
 Have a team name, the list of team members including student ID numbers, and a ranked list of projects.
 Projects will be allocated to teams on a first-come, first-served basis. Use Piazza to find other students to
 help complete your team. If you cannot find a team, you will be assigned to one.
 
-Deadline #2: March 5
-th, 11:55 pm: Provide a breakdown of programming tasks, and who will be
+Deadline #2: March 5th, 11:55 pm:
+Provide a breakdown of programming tasks, and who will be
 responsible for what, along with a timeline that will meet the submission deadline. The more specific you
 can be in defining the programming tasks, what functions should exist, and what each function should
 accomplish, the better. How the submission will be done will be announced.
 
-Deadline #3: March 18th, 11:55 pm: Submission of all materials required by project. How the
+Deadline #3: March 18th, 11:55 pm: 
+Submission of all materials required by project. How the
 submission will be done will be announced.
 
 
@@ -52,9 +53,13 @@ not credited, it will be considered plagiarism and the case will be turned over 
 Youtube Video Requirements:
 
 The format of the video is entirely up to your team as long as the following criteria are met:
+
   Maximum length of the video is 10 minutes
+  
   Each team member must be seen in the video to present their work and contributions
+  
   A clear and easy to follow demonstration that shows the correct functionality of your program
   (show you program actually working in the video – not screen shots of before and after.)
+  
 Use visual aides to help explain your steps (whiteboard, markers, poster, etc.). The video does
 not have to be fancy, just effective in relaying the most important information. 
