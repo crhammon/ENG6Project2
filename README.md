@@ -50,10 +50,11 @@ In the event that you have used external resources, you must provide appropriate
 or in your program code. If it is discovered that you have borrowed or used material from a source that is
 not credited, it will be considered plagiarism and the case will be turned over to Student Judicial Affairs.
 Youtube Video Requirements:
+
 The format of the video is entirely up to your team as long as the following criteria are met:
-  ● Maximum length of the video is 10 minutes
-  ● Each team member must be seen in the video to present their work and contributions
-  ● A clear and easy to follow demonstration that shows the correct functionality of your program
-(show you program actually working in the video – not screen shots of before and after.)
+  Maximum length of the video is 10 minutes
+  Each team member must be seen in the video to present their work and contributions
+  A clear and easy to follow demonstration that shows the correct functionality of your program
+  (show you program actually working in the video – not screen shots of before and after.)
 Use visual aides to help explain your steps (whiteboard, markers, poster, etc.). The video does
 not have to be fancy, just effective in relaying the most important information. 
