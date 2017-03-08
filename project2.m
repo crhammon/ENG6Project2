@@ -98,12 +98,56 @@ contents = cellstr(get(hObject,'String')); %returns popupmenu1 contents as cell 
 PlotChoice = contents{get(hObject,'Value')};%returns selected item from popupmenu1
 if (strcmp(PlotChoice,'Plot 1'))
 %     load('plot1.jpg')
+    
     image = imread('plot1.jpg');
-    imshow(image);
+    
+    hold on;
+    imshow(image)
+    M=size(image,1);
+    N=size(image,2);
+
+    for k = 1:20:M
+        x = [1 N];
+        y = [k k];
+        plot(x,y,'Color','w','LineStyle','-');
+        plot(x,y,'Color','k','LineStyle',':');
+    end
+
+    for k = 1:20:N
+        x = [k k];
+        y = [1 M];
+        plot(x,y,'Color','w','LineStyle','-');
+        plot(x,y,'Color','k','LineStyle',':');
+    end
+
+    hold off
+
+    
 elseif (strcmp(PlotChoice,'Plot 2'))
 %     load('plot2.jpg')
+    clear
     image = imread('plot2.jpg');
-    imshow(image);
+    hold on
+    imshow(image)
+    M=size(image,1);
+    N=size(image,2);
+
+    for k = 1:20:M
+        x = [1 N];
+        y = [k k];
+        plot(x,y,'Color','w','LineStyle','-');
+        plot(x,y,'Color','k','LineStyle',':');
+    end
+
+    for k = 1:20:N
+        x = [k k];
+        y = [1 M];
+        plot(x,y,'Color','w','LineStyle','-');
+        plot(x,y,'Color','k','LineStyle',':');
+    end
+
+    hold off
+
 elseif (strcmp(PlotChoice,'Plot 3'))
 %     load('plot3.jpg')
     image = plot3;
