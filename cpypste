@@ -1,7 +1,0 @@
-clear,clc
-load Fargo.mat
-load plots123
-figure(1)
-image(plot1)
-
-gridded=insertShape(plot1,'rectangle',[1:10:size(plot1,1) 1:10:size(plot1,2) 20 20])
