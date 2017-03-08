@@ -1,3 +1,4 @@
+%Use boxCallback function located in the repository
 load plots123
 figure(1)
 image(plot1)
