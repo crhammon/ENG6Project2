@@ -23,7 +23,7 @@ function varargout = project2(varargin)
 
 % Edit the above text to modify the response to help project2
 
-% Last Modified by GUIDE v2.5 07-Mar-2017 17:23:05
+% Last Modified by GUIDE v2.5 09-Mar-2017 14:43:30
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -93,180 +93,272 @@ function PlotChoice_Callback(hObject, eventdata, handles)
 % hObject    handle to popupmenu1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-load plots123.mat
+
 contents = cellstr(get(hObject,'String')); %returns popupmenu1 contents as cell array
 PlotChoice = contents{get(hObject,'Value')};%returns selected item from popupmenu1
+
+
 if (strcmp(PlotChoice,'Plot 1'))
-%     load('plot1.jpg')
     
     image = imread('plot1.jpg');
     
-    hold on;
     imshow(image)
-    M=size(image,1);
-    N=size(image,2);
-
-    for k = 1:20:M
-        x = [1 N];
-        y = [k k];
-        plot(x,y,'Color','w','LineStyle','-');
-        plot(x,y,'Color','k','LineStyle',':');
-    end
-
-    for k = 1:20:N
-        x = [k k];
-        y = [1 M];
-        plot(x,y,'Color','w','LineStyle','-');
-        plot(x,y,'Color','k','LineStyle',':');
-    end
-
-    hold off
-
     
 elseif (strcmp(PlotChoice,'Plot 2'))
-%     load('plot2.jpg')
-    clear
+    
     image = imread('plot2.jpg');
-    hold on
+    
     imshow(image)
-    M=size(image,1);
-    N=size(image,2);
-
-    for k = 1:20:M
-        x = [1 N];
-        y = [k k];
-        plot(x,y,'Color','w','LineStyle','-');
-        plot(x,y,'Color','k','LineStyle',':');
-    end
-
-    for k = 1:20:N
-        x = [k k];
-        y = [1 M];
-        plot(x,y,'Color','w','LineStyle','-');
-        plot(x,y,'Color','k','LineStyle',':');
-    end
-
-    hold off
-
+    
 elseif (strcmp(PlotChoice,'Plot 3'))
-%     load('plot3.jpg')
-    image = plot3;
-    imshow(plot3);
+    
+    image = imread('plot3.jpg');
+    
+    imshow(image);
+    
 end
+
 assignin('base','image',image);
 
-% --- Executes on button press in radiobutton1.
-function radiobutton1_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton1 (see GCBO)
+% --- Executes on button press in SF50048.
+function SF50048_Callback(hObject, eventdata, handles)
+
+
+% Hint: get(hObject,'Value') returns toggle state of SF50048
+
+
+% --- Executes on button press in SF39810.
+function SF39810_Callback(hObject, eventdata, handles)
+% hObject    handle to SF39810 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton1
+% Hint: get(hObject,'Value') returns toggle state of SF39810
 
 
-% --- Executes on button press in radiobutton2.
-function radiobutton2_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton2 (see GCBO)
+% --- Executes on button press in ISSPCC5W.
+function ISSPCC5W_Callback(hObject, eventdata, handles)
+% hObject    handle to ISSPCC5W (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton2
+% Hint: get(hObject,'Value') returns toggle state of ISSPCC5W
 
 
-% --- Executes on button press in radiobutton3.
-function radiobutton3_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton3 (see GCBO)
+% --- Executes on button press in ISSP100W.
+function ISSP100W_Callback(hObject, eventdata, handles)
+% hObject    handle to ISSP100W (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton3
+% Hint: get(hObject,'Value') returns toggle state of ISSP100W
 
 
-% --- Executes on button press in radiobutton4.
-function radiobutton4_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton4 (see GCBO)
+% --- Executes on button press in ISSPCC30W.
+function ISSPCC30W_Callback(hObject, eventdata, handles)
+% hObject    handle to ISSPCC30W (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton4
+% Hint: get(hObject,'Value') returns toggle state of ISSPCC30W
 
 
-% --- Executes on button press in radiobutton5.
-function radiobutton5_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton5 (see GCBO)
+% --- Executes on button press in InstaparkSP10W.
+function InstaparkSP10W_Callback(hObject, eventdata, handles)
+% hObject    handle to InstaparkSP10W (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton5
+% Hint: get(hObject,'Value') returns toggle state of InstaparkSP10W
 
 
-% --- Executes on button press in radiobutton6.
-function radiobutton6_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton6 (see GCBO)
+% --- Executes on button press in Ramsond100SP.
+function Ramsond100SP_Callback(hObject, eventdata, handles)
+% hObject    handle to Ramsond100SP (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton6
+% Hint: get(hObject,'Value') returns toggle state of Ramsond100SP
 
 
-% --- Executes on button press in radiobutton7.
-function radiobutton7_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton7 (see GCBO)
+% --- Executes on button press in EWK5012.
+function EWK5012_Callback(hObject, eventdata, handles)
+% hObject    handle to EWK5012 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton7
+% Hint: get(hObject,'Value') returns toggle state of EWK5012
 
 
-% --- Executes on button press in radiobutton8.
-function radiobutton8_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton8 (see GCBO)
+% --- Executes on button press in SPE18.
+function SPE18_Callback(hObject, eventdata, handles)
+% hObject    handle to SPE18 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton8
+% Hint: get(hObject,'Value') returns toggle state of SPE18
 
 
-% --- Executes on button press in radiobutton9.
-function radiobutton9_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton9 (see GCBO)
+% --- Executes on button press in SPT5.
+function SPT5_Callback(hObject, eventdata, handles)
+% hObject    handle to SPT5 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton9
+% Hint: get(hObject,'Value') returns toggle state of SPT5
 
 
-% --- Executes on button press in radiobutton10.
-function radiobutton10_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton10 (see GCBO)
+% --- Executes on button press in WMHY10005.
+function WMHY10005_Callback(hObject, eventdata, handles)
+% hObject    handle to WMHY10005 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton10
+% Hint: get(hObject,'Value') returns toggle state of WMHY10005
 
 
-% --- Executes on button press in radiobutton11.
-function radiobutton11_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton11 (see GCBO)
+% --- Executes on button press in WMHY400.
+function WMHY400_Callback(hObject, eventdata, handles)
+% hObject    handle to WMHY400 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton11
+% Hint: get(hObject,'Value') returns toggle state of WMHY400
 
 
-% --- Executes on button press in radiobutton12.
-function radiobutton12_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton12 (see GCBO)
+% --- Executes on button press in GCWG400.
+function GCWG400_Callback(hObject, eventdata, handles)
+% hObject    handle to GCWG400 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton12
+% Hint: get(hObject,'Value') returns toggle state of GCWG400
 
 
-% --- Executes on button press in radiobutton13.
-function radiobutton13_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton13 (see GCBO)
+% --- Executes on button press in GCWG700.
+function GCWG700_Callback(hObject, eventdata, handles)
+% hObject    handle to GCWG700 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton13
+% Hint: get(hObject,'Value') returns toggle state of GCWG700
+
+
+% --- Executes on button press in APAAPWT.
+function APAAPWT_Callback(hObject, eventdata, handles)
+% hObject    handle to APAAPWT (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of APAAPWT
+
+
+% --- Executes on button press in SF45444.
+function SF45444_Callback(hObject, eventdata, handles)
+% hObject    handle to SF45444 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of SF45444
+
+
+% --- Executes on button press in SF44444.
+function SF44444_Callback(hObject, eventdata, handles)
+% hObject    handle to SF44444 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of SF44444
+
+
+% --- Executes on button press in WNWCK750.
+function WNWCK750_Callback(hObject, eventdata, handles)
+% hObject    handle to WNWCK750 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of WNWCK750
+
+% function myfunc
+% fig = uifigure;
+% bg = uibuttongroup(fig,...
+%                   'Title','Power Options',...
+%                   'Position', [10 0 500 500],...
+%                   'SelectionChangedFcn',@(bg,event) bselection(bg,event));
+% 
+%               
+% % Create three radio buttons in the button group.
+% SF50048 = uiradiobutton(bg,...
+%                   'Text','Sunforce 50048/ Amorphous Silicon/ 15 W/ 42.5in x 1.5in x 16in / 11 lbs / $279.95',...
+%                   'Position',[10 460 550 15]);
+%               
+% SF39810 = uiradiobutton(bg,...
+%                   'Text','Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in x 2in/ 22lbs/ $499.95',...
+%                   'Position',[10 445 550 15]);
+% 
+% ISSPCC5W = uiradiobutton(bg,...
+%                   'Text','Instapark SPCC-5W/ Mono-crystalline/ 5 W/ 11in x 8in x 1in/ 2.8 lbs/ $34.95',...
+%                   'Position',[10 430 550 15]);
+%               
+% ISSP100W = uiradiobutton(bg,...
+%                   'Text','Instapark SP-100W/ Mono-crystalline/ 100 W/ 45in x 1.5in x 26in/ 21 lbs/ $319.99',...
+%                   'Position',[10 415 550 15]);
+% 
+% ISSPCC30W = uiradiobutton(bg,...
+%                   'Text','Instapark SPCC-30W/ Mono-crystalline/ 30 W/ 21.5in x 1.1in x 17.2in/ 7.2 lbs/ $114.70',...
+%                   'Position',[10 400 550 15]);
+% 
+% InstaparkSP10W = uiradiobutton(bg,...
+%                   'Text','Instapark SP-10W/ Mono-crystalline/ 10 W/ 14in x 11in x 1in/ 2.8 lbs/ $39.95',...
+%                   'Position',[10 385 550 15]);
+% 
+% Ramsond100SP = uiradiobutton(bg,...
+%                   'Text','Ramsond 100SP/ Mono-crystalline/ 100 W/ 47in x 1.5in x 21.8in/ 12 lbs/ $245.99',...
+%                   'Position',[10 370 550 15]);
+% 
+% EWK5012 = uiradiobutton(bg,...
+%                   'Text','Epcom WK50-12/ Polycrystalline/ 50 W/ 32in x 22in x 1.4in/ 12 lbs/ $99.99',...
+%                   'Position',[10 355 550 15]);
+% 
+% SPE18 = uiradiobutton(bg,...
+%                   'Text','Sun Power E18/ Mono-crystalline/ 400 W/ 41.18in x 81.36in x 2.13in/ 56 lbs / $249.50',...
+%                   'Position',[10 340 550 15]);
+% 
+% SPT5 = uiradiobutton(bg,...
+%                   'Text','Sun Power T5/ Mono-crystalline/ 320 W/ 43.06in x 75.13in x 8.37in/ 47 lbs/ $199.99',...
+%                   'Position',[10 325 550 15]);
+% 
+% WMHY10005 = uiradiobutton(bg,...
+%                   'Text','Windmax HY 1000-5/ Wind Generator/ 1000 W/ 15ft/ $999.99',...
+%                   'Position',[10 295 550 15]);
+% 
+% WMHY400 = uiradiobutton(bg,...
+%                   'Text','Windmax HY 400/ Wind Generator/ 500 W/ 13 ft/ $686.40',...
+%                   'Position',[10 280 550 15]);
+% 
+% GCWG400 = uiradiobutton(bg,...
+%                   'Text','GudCraft WG400/ Wind Generator/ 400 W/ 13 ft/ $399.00',...
+%                   'Position',[10 265 550 15]);
+% 
+% GCWG700 = uiradiobutton(bg,...
+%                   'Text','GudCraft WG700/ Wind Generator/ 700 W/ 13 ft/ $449.00',...
+%                   'Position',[10 250 550 15]);
+% 
+% APAAPWT = uiradiobutton(bg,...
+%                   'Text','All Power America APWT400A/ 400 W/ 10 ft/ $476.93',...
+%                   'Position',[10 235 550 15]);
+% 
+% SF45444 = uiradiobutton(bg,...
+%                   'Text','Sunforce 45444/ Wind Turbine/ 600 W/ 10 ft/ $749.99',...
+%                   'Position',[10 220 550 15]);
+% 
+% SF44444 = uiradiobutton(bg,...
+%                   'Text','Sunforce 44444/ Wind Generator/ 400 W/ 10 ft/ $474.34',...
+%                   'Position',[10 205 550 15]);
+%               
+% WNWCK750 = uiradiobutton(bg,...
+%                   'Text','WindyNation WCK-750/ Wind Turbine/ 750 W/ 15 ft/ $999.98',...
+%                   'Position',[10 190 550 15]);
+%                    
+%          
+%  
