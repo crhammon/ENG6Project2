@@ -23,7 +23,7 @@ function varargout = project2(varargin)
 
 % Edit the above text to modify the response to help project2
 
-% Last Modified by GUIDE v2.5 07-Mar-2017 17:23:05
+% Last Modified by GUIDE v2.5 07-Mar-2017 22:07:00
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -93,180 +93,192 @@ function PlotChoice_Callback(hObject, eventdata, handles)
 % hObject    handle to popupmenu1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-load plots123.mat
+
 contents = cellstr(get(hObject,'String')); %returns popupmenu1 contents as cell array
 PlotChoice = contents{get(hObject,'Value')};%returns selected item from popupmenu1
+
+
 if (strcmp(PlotChoice,'Plot 1'))
-%     load('plot1.jpg')
     
     image = imread('plot1.jpg');
     
-    hold on;
     imshow(image)
-    M=size(image,1);
-    N=size(image,2);
-
-    for k = 1:20:M
-        x = [1 N];
-        y = [k k];
-        plot(x,y,'Color','w','LineStyle','-');
-        plot(x,y,'Color','k','LineStyle',':');
-    end
-
-    for k = 1:20:N
-        x = [k k];
-        y = [1 M];
-        plot(x,y,'Color','w','LineStyle','-');
-        plot(x,y,'Color','k','LineStyle',':');
-    end
-
-    hold off
-
+    
+    gridded = insertShape(image,'rectangle',[1:10:size(image,1),1:10:size(image,2),20,20])
     
 elseif (strcmp(PlotChoice,'Plot 2'))
-%     load('plot2.jpg')
-    clear
+    
     image = imread('plot2.jpg');
-    hold on
+    
     imshow(image)
-    M=size(image,1);
-    N=size(image,2);
-
-    for k = 1:20:M
-        x = [1 N];
-        y = [k k];
-        plot(x,y,'Color','w','LineStyle','-');
-        plot(x,y,'Color','k','LineStyle',':');
-    end
-
-    for k = 1:20:N
-        x = [k k];
-        y = [1 M];
-        plot(x,y,'Color','w','LineStyle','-');
-        plot(x,y,'Color','k','LineStyle',':');
-    end
-
-    hold off
-
+    
 elseif (strcmp(PlotChoice,'Plot 3'))
-%     load('plot3.jpg')
-    image = plot3;
-    imshow(plot3);
+    
+    image = imread('plot3.jpg');
+    
+    imshow(image);
+    
 end
+
 assignin('base','image',image);
 
-% --- Executes on button press in radiobutton1.
-function radiobutton1_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton1 (see GCBO)
+% --- Executes on button press in SF50048.
+function SF50048_Callback(hObject, eventdata, handles)
+% hObject    handle to SF50048 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton1
+% Hint: get(hObject,'Value') returns toggle state of SF50048
 
 
-% --- Executes on button press in radiobutton2.
-function radiobutton2_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton2 (see GCBO)
+% --- Executes on button press in SF39810.
+function SF39810_Callback(hObject, eventdata, handles)
+% hObject    handle to SF39810 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton2
+% Hint: get(hObject,'Value') returns toggle state of SF39810
 
 
-% --- Executes on button press in radiobutton3.
-function radiobutton3_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton3 (see GCBO)
+% --- Executes on button press in ISSPCC5W.
+function ISSPCC5W_Callback(hObject, eventdata, handles)
+% hObject    handle to ISSPCC5W (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton3
+% Hint: get(hObject,'Value') returns toggle state of ISSPCC5W
 
 
-% --- Executes on button press in radiobutton4.
-function radiobutton4_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton4 (see GCBO)
+% --- Executes on button press in ISSP100W.
+function ISSP100W_Callback(hObject, eventdata, handles)
+% hObject    handle to ISSP100W (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton4
+% Hint: get(hObject,'Value') returns toggle state of ISSP100W
 
 
-% --- Executes on button press in radiobutton5.
-function radiobutton5_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton5 (see GCBO)
+% --- Executes on button press in ISSPCC30W.
+function ISSPCC30W_Callback(hObject, eventdata, handles)
+% hObject    handle to ISSPCC30W (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton5
+% Hint: get(hObject,'Value') returns toggle state of ISSPCC30W
 
 
-% --- Executes on button press in radiobutton6.
-function radiobutton6_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton6 (see GCBO)
+% --- Executes on button press in InstaparkSP10W.
+function InstaparkSP10W_Callback(hObject, eventdata, handles)
+% hObject    handle to InstaparkSP10W (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton6
+% Hint: get(hObject,'Value') returns toggle state of InstaparkSP10W
 
 
-% --- Executes on button press in radiobutton7.
-function radiobutton7_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton7 (see GCBO)
+% --- Executes on button press in Ramsond100SP.
+function Ramsond100SP_Callback(hObject, eventdata, handles)
+% hObject    handle to Ramsond100SP (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton7
+% Hint: get(hObject,'Value') returns toggle state of Ramsond100SP
 
 
-% --- Executes on button press in radiobutton8.
-function radiobutton8_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton8 (see GCBO)
+% --- Executes on button press in EWK5012.
+function EWK5012_Callback(hObject, eventdata, handles)
+% hObject    handle to EWK5012 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton8
+% Hint: get(hObject,'Value') returns toggle state of EWK5012
 
 
-% --- Executes on button press in radiobutton9.
-function radiobutton9_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton9 (see GCBO)
+% --- Executes on button press in SPE18.
+function SPE18_Callback(hObject, eventdata, handles)
+% hObject    handle to SPE18 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton9
+% Hint: get(hObject,'Value') returns toggle state of SPE18
 
 
-% --- Executes on button press in radiobutton10.
-function radiobutton10_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton10 (see GCBO)
+% --- Executes on button press in SPT5.
+function SPT5_Callback(hObject, eventdata, handles)
+% hObject    handle to SPT5 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton10
+% Hint: get(hObject,'Value') returns toggle state of SPT5
 
 
-% --- Executes on button press in radiobutton11.
-function radiobutton11_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton11 (see GCBO)
+% --- Executes on button press in WMHY10005.
+function WMHY10005_Callback(hObject, eventdata, handles)
+% hObject    handle to WMHY10005 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton11
+% Hint: get(hObject,'Value') returns toggle state of WMHY10005
 
 
-% --- Executes on button press in radiobutton12.
-function radiobutton12_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton12 (see GCBO)
+% --- Executes on button press in WMHY400.
+function WMHY400_Callback(hObject, eventdata, handles)
+% hObject    handle to WMHY400 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton12
+% Hint: get(hObject,'Value') returns toggle state of WMHY400
 
 
-% --- Executes on button press in radiobutton13.
-function radiobutton13_Callback(hObject, eventdata, handles)
-% hObject    handle to radiobutton13 (see GCBO)
+% --- Executes on button press in GCWG400.
+function GCWG400_Callback(hObject, eventdata, handles)
+% hObject    handle to GCWG400 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hint: get(hObject,'Value') returns toggle state of radiobutton13
+% Hint: get(hObject,'Value') returns toggle state of GCWG400
+
+
+% --- Executes on button press in GCWG700.
+function GCWG700_Callback(hObject, eventdata, handles)
+% hObject    handle to GCWG700 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of GCWG700
+
+
+% --- Executes on button press in APAAPWT.
+function APAAPWT_Callback(hObject, eventdata, handles)
+% hObject    handle to APAAPWT (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of APAAPWT
+
+
+% --- Executes on button press in SF45444.
+function SF45444_Callback(hObject, eventdata, handles)
+% hObject    handle to SF45444 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of SF45444
+
+
+% --- Executes on button press in SF44444.
+function SF44444_Callback(hObject, eventdata, handles)
+% hObject    handle to SF44444 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of SF44444
+
+
+% --- Executes on button press in WNWCK750.
+function WNWCK750_Callback(hObject, eventdata, handles)
+% hObject    handle to WNWCK750 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of WNWCK750
