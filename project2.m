@@ -22,7 +22,7 @@ function varargout = project2(varargin)
 
 % Edit the above text to modify the response to help project2
 
-% Last Modified by GUIDE v2.5 09-Mar-2017 17:55:00
+% Last Modified by GUIDE v2.5 10-Mar-2017 20:21:41
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -354,13 +354,6 @@ getappdata(0,'selection')
 SolarAmount
 colorOption = get(get(handles.powerOption,'SelectedObject'),'String')
 
-% hold on
-% for c=1:15:size(image,2)
-%     for b=1:15:size(image,1)
-%     square=rectangle('position',[c b 15 15],'PickableParts','all','visible','off','FaceColor','b','ButtonDownFcn',@boxCallback);
-%     end
-% end 
-
 
 % --- Executes during object deletion, before destroying properties.
 function axes1_DeleteFcn(hObject, eventdata, handles)
@@ -485,3 +478,18 @@ function cost_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+
+% --- Executes on button press on Finish and Print Bill of Materials
+function pushbutton4_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton4 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+load Solar_data.mat
+cell_sol=struct2cell(sol_data)
+evalin('base','countB');
+
+%fprintf('%.0f| %s|',evalin('base','countB')
+
+
