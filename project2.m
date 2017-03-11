@@ -51,9 +51,11 @@ function project2_OpeningFcn(hObject, eventdata, handles, varargin)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 % varargin   command line arguments to project2 (see VARARGIN)
+assignin('base','count',0)
 assignin('base','countR',0)
 assignin('base','countB',0)
 assignin('base','countM',0)
+assignin('base','countCyan',0)
 % Choose default command line output for project2
 handles.output = hObject;
 
@@ -99,20 +101,19 @@ function PlotChoice_Callback(hObject, eventdata, handles)
 contents = cellstr(get(hObject,'String')); %returns popupmenu1 contents as cell array
 PlotChoice = contents{get(hObject,'Value')};%returns selected item from popupmenu1
 global image
-% while count ~= 11
+
 if (strcmp(PlotChoice,'Plot 1'))
     
     image = imread('plot1.jpg');
     
     imshow(image)
     
-for c=1:15:size(image,2)
+    for c=1:15:size(image,2)
+        for b=1:15:size(image,1)
+          square=rectangle('position',[c b 15 15],'PickableParts','all','visible','off','FaceColor','b','ButtonDownFcn',@boxCallback);
+        end
 
-    for b=1:15:size(image,1)
-        square=rectangle('position',[c b 15 15],'PickableParts','all','visible','off','FaceColor','b','ButtonDownFcn',@boxCallback);
     end
-
-end
 
 elseif (strcmp(PlotChoice,'Plot 2'))
     
@@ -120,13 +121,13 @@ elseif (strcmp(PlotChoice,'Plot 2'))
     
     imshow(image)
 
-for c=1:15:size(image,2)
+    for c=1:15:size(image,2)
 
-    for b=1:15:size(image,1)
-        square=rectangle('position',[c b 15 15],'PickableParts','all','visible','off','FaceColor','b','ButtonDownFcn',@boxCallback);
+        for b=1:15:size(image,1)
+            square=rectangle('position',[c b 15 15],'PickableParts','all','visible','off','FaceColor','b','ButtonDownFcn',@boxCallback);
+        end
+
     end
-
-end
     
 elseif (strcmp(PlotChoice,'Plot 3'))
     
@@ -134,14 +135,12 @@ elseif (strcmp(PlotChoice,'Plot 3'))
     
     imshow(image);
     
-for c=1:15:size(image,2)
+    for c=1:15:size(image,2)
+        for b=1:15:size(image,1)
+          square=rectangle('position',[c b 15 15],'PickableParts','all','visible','off','FaceColor','b','ButtonDownFcn',@boxCallback); 
+        end
 
-    for b=1:15:size(image,1)
-        square=rectangle('position',[c b 15 15],'PickableParts','all','visible','off','FaceColor','b','ButtonDownFcn',@boxCallback);
-        
     end
-
-end
     
 end
 
@@ -153,6 +152,7 @@ global selectionNum
 selectionNum = 1;
 setappdata(0,'selection',selectionNum)
 assignin('base','color','b')
+assignin('base','count',0)
 % Hint: get(hObject,'Value') returns toggle state of SF50048
 
 
@@ -165,6 +165,7 @@ global selectionNum
 selectionNum = 2;
 setappdata(0,'selection',selectionNum)
 assignin('base','color','r')
+assignin('base','count',0)
 % returns toggle state of SF39810
 
 
@@ -177,6 +178,7 @@ global selectionNum
 selectionNum = 3;
 setappdata(0,'selection',selectionNum)
 assignin('base','color','m')
+assignin('base','count',0)
 % returns toggle state of ISSPCC5W
 
 
@@ -189,6 +191,7 @@ global selectionNum
 selectionNum = 4;
 setappdata(0,'selection',selectionNum)
 assignin('base','color',[0.1 0.7 1])
+assignin('base','count',0)
 % returns toggle state of ISSP100W
 
 
