@@ -22,7 +22,7 @@ function varargout = project2(varargin)
 
 % Edit the above text to modify the response to help project2
 
-% Last Modified by GUIDE v2.5 10-Mar-2017 22:17:31
+% Last Modified by GUIDE v2.5 11-Mar-2017 11:00:26
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -52,12 +52,25 @@ function project2_OpeningFcn(hObject, eventdata, handles, varargin)
 % handles    structure with handles and user data (see GUIDATA)
 % varargin   command line arguments to project2 (see VARARGIN)
 assignin('base','count',0)
-assignin('base','countR',0)
-assignin('base','countB',0)
-assignin('base','countM',0)
-assignin('base','countCyan',0)
+assignin('base','count1',0)
+assignin('base','count2',0)
+assignin('base','count3',0)
+assignin('base','count4',0)
+assignin('base','count5',0)
+assignin('base','count6',0)
+assignin('base','count7',0)
+assignin('base','count8',0)
+assignin('base','count9',0)
+assignin('base','count10',0)
+assignin('base','count11',0)
+assignin('base','count12',0)
+assignin('base','count13',0)
+assignin('base','count14',0)
+assignin('base','count15',0)
+assignin('base','count16',0)
+assignin('base','count17',0)
+assignin('base','count18',0)
 
-% assignin('base','countArrayPlot1',[0 0 0;0 0 0;0 0 0]);
 
 % Choose default command line output for project2
 handles.output = hObject;
@@ -104,41 +117,48 @@ function PlotChoice_Callback(hObject, eventdata, handles)
 contents = cellstr(get(hObject,'String')); %returns popupmenu1 contents as cell array
 PlotChoice = contents{get(hObject,'Value')};%returns selected item from popupmenu1
 global image
-
+% while evalin('base','count') ~= 11
 if (strcmp(PlotChoice,'Plot 1'))
     
     image = imread('plot1.jpg');
     
     imshow(image)
-     b=size([1:15:size(image,1)]);%gives number of rows
-     assignin('base','b',b)
-     c=size([1:15:size(image,2)]);%gives number of columns
-     assignin('base','c',c)
-     
-  assignin('base','countArrayPlot1',zeros(b(2),c(2)));
     
-    for c=1:15:size(image,2)
-        for b=1:15:size(image,1)
-          square=rectangle('position',[c b 15 15],'PickableParts','all','visible','off','FaceColor','b','ButtonDownFcn',@boxCallback);
-        end
+    b=size([1:15:size(image,1)]);%gives number of rows
 
+    assignin('base','b',b)
+
+    c=size([1:15:size(image,2)]);%gives number of columns
+
+    assignin('base','c',c)
+
+     
+
+    assignin('base','countArrayPlot1',zeros(b(2),c(2)));
+
+
+    
+for c=1:15:size(image,2)
+
+    for b=1:15:size(image,1)
+        square=rectangle('position',[c b 15 15],'PickableParts','all','visible','off','FaceColor','b','ButtonDownFcn',@boxCallback);
     end
+
+end
 
 elseif (strcmp(PlotChoice,'Plot 2'))
     
     image = imread('plot2.jpg');
     
     imshow(image)
-    
-   %assignin('base','countArrayPlot2',zeros(size(1:15:size(image,1)),(size(1:15:size(image,2)))));
 
-    for c=1:15:size(image,2)
+for c=1:15:size(image,2)
 
-        for b=1:15:size(image,1)
-            square=rectangle('position',[c b 15 15],'PickableParts','all','visible','off','FaceColor','b','ButtonDownFcn',@boxCallback);
-        end
-
+    for b=1:15:size(image,1)
+        square=rectangle('position',[c b 15 15],'PickableParts','all','visible','off','FaceColor','b','ButtonDownFcn',@boxCallback);
     end
+
+end
     
 elseif (strcmp(PlotChoice,'Plot 3'))
     
@@ -146,27 +166,27 @@ elseif (strcmp(PlotChoice,'Plot 3'))
     
     imshow(image);
     
-   % assignin('base','countArrayPlot3',zeros(size(1:15:size(image,1)),(size(1:15:size(image,2)))));
-    
-    for c=1:15:size(image,2)
-        for b=1:15:size(image,1)
-          square=rectangle('position',[c b 15 15],'PickableParts','all','visible','off','FaceColor','b','ButtonDownFcn',@boxCallback); 
-        end
+for c=1:15:size(image,2)
 
+    for b=1:15:size(image,1)
+        square=rectangle('position',[c b 15 15],'PickableParts','all','visible','off','FaceColor','b','ButtonDownFcn',@boxCallback);
+        assignin('base','square1',square)
     end
+
+end
     
 end
-
+count = evalin('base','count');
+if count == 10
+    errordlg({'Click an option to continue.'},'Limit Reached')
+end
 assignin('base','image',image);
 
 % --- Executes on button press in SF50048.
 function SF50048_Callback(hObject, eventdata, handles)
-global selectionNum
-assignin('base','selectionNum',1);
-setappdata(0,'selection',selectionNum)
-assignin('base','color','b')
 assignin('base','count',0)
-%assignin('base','SF5',evalin('base',)
+assignin('base','color',[0.6 0.3 1])
+assignin('base','select',1)
 % Hint: get(hObject,'Value') returns toggle state of SF50048
 
 
@@ -175,11 +195,9 @@ function SF39810_Callback(hObject, eventdata, handles)
 % hObject    handle to SF39810 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 2;
-setappdata(0,'selection',selectionNum)
 assignin('base','color','r')
 assignin('base','count',0)
+assignin('base','select',2)
 % returns toggle state of SF39810
 
 
@@ -188,11 +206,9 @@ function ISSPCC5W_Callback(hObject, eventdata, handles)
 % hObject    handle to ISSPCC5W (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 3;
-setappdata(0,'selection',selectionNum)
-assignin('base','color','m')
+assignin('base','color','b')
 assignin('base','count',0)
+assignin('base','select',3)
 % returns toggle state of ISSPCC5W
 
 
@@ -201,11 +217,9 @@ function ISSP100W_Callback(hObject, eventdata, handles)
 % hObject    handle to ISSP100W (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 4;
-setappdata(0,'selection',selectionNum)
-assignin('base','color',[0.1 0.7 1])
+assignin('base','color','m')
 assignin('base','count',0)
+assignin('base','select',4)
 % returns toggle state of ISSP100W
 
 
@@ -214,9 +228,9 @@ function ISSPCC30W_Callback(hObject, eventdata, handles)
 % hObject    handle to ISSPCC30W (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 5;
-setappdata(0,'selection',selectionNum)
+assignin('base','count',0)
+assignin('base','color','y')
+assignin('base','select',5)
 % returns toggl5 state of ISSPCC30W
 
 
@@ -225,9 +239,9 @@ function InstaparkSP10W_Callback(hObject, eventdata, handles)
 % hObject    handle to InstaparkSP10W (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 6;
-setappdata(0,'selection',selectionNum)
+assignin('base','count',0)
+assignin('base','color',[0.3 0.9 0.1])
+assignin('base','select',6)
 % returns toggle state of InstaparkSP10W
 
 
@@ -236,9 +250,9 @@ function Ramsond100SP_Callback(hObject, eventdata, handles)
 % hObject    handle to Ramsond100SP (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 7;
-setappdata(0,'selection',selectionNum)
+assignin('base','count',0)
+assignin('base','select',7)
+assignin('base','color','c')
 % returns toggle state of Ramsond100SP
 
 
@@ -247,9 +261,9 @@ function EWK5012_Callback(hObject, eventdata, handles)
 % hObject    handle to EWK5012 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 8;
-setappdata(0,'selection',selectionNum)
+assignin('base','count',0)
+assignin('base','select',8)
+assignin('base','color',[1 0.6 0])
 % Hint: get(hObject,'Value') returns toggle state of EWK5012
 
 
@@ -258,9 +272,9 @@ function SPE18_Callback(hObject, eventdata, handles)
 % hObject    handle to SPE18 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 9;
-setappdata(0,'selection',selectionNum)
+assignin('base','count',0)
+assignin('base','select',9)
+assignin('base','color',[0.5 0.5 0.5])
 % Hint: get(hObject,'Value') returns toggle state of SPE18
 
 
@@ -269,9 +283,9 @@ function SPT5_Callback(hObject, eventdata, handles)
 % hObject    handle to SPT5 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 10;
-setappdata(0,'selection',selectionNum)
+assignin('base','count',0)
+assignin('base','select',10)
+assignin('base','color',[0.9 1 0.7])
 % Hint: get(hObject,'Value') returns toggle state of SPT5
 
 
@@ -280,9 +294,9 @@ function WMHY10005_Callback(hObject, eventdata, handles)
 % hObject    handle to WMHY10005 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 11;
-setappdata(0,'selection',selectionNum)
+assignin('base','count',0)
+assignin('base','color',[0.4 0.7 0.1])
+assignin('base','select',11)
 % Hint: get(hObject,'Value') returns toggle state of WMHY10005
 
 
@@ -291,9 +305,9 @@ function WMHY400_Callback(hObject, eventdata, handles)
 % hObject    handle to WMHY400 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 12;
-setappdata(0,'selection',selectionNum)
+assignin('base','count',0)
+assignin('base','select',12)
+assignin('base','color',[0.7 0.1 0.5])
 % Hint: get(hObject,'Value') returns toggle state of WMHY400
 
 
@@ -302,8 +316,9 @@ function GCWG400_Callback(hObject, eventdata, handles)
 % hObject    handle to GCWG400 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 13;
+assignin('base','count',0)
+assignin('base','select',13)
+assignin('base','color',[0.8 0.8 0.3])
 % Hint: get(hObject,'Value') returns toggle state of GCWG400
 
 
@@ -312,8 +327,9 @@ function GCWG700_Callback(hObject, eventdata, handles)
 % hObject    handle to GCWG700 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 14;
+assignin('base','count',0)
+assignin('base','select',14)
+assignin('base','color',[0.3 0.5 1])
 % Hint: get(hObject,'Value') returns toggle state of GCWG700
 
 
@@ -322,8 +338,9 @@ function APAAPWT_Callback(hObject, eventdata, handles)
 % hObject    handle to APAAPWT (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 15;
+assignin('base','count',0)
+assignin('base','select',15)
+assignin('base','color',[0 0 0])
 % Hint: get(hObject,'Value') returns toggle state of APAAPWT
 
 
@@ -332,8 +349,9 @@ function SF45444_Callback(hObject, eventdata, handles)
 % hObject    handle to SF45444 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 16;
+assignin('base','count',0)
+assignin('base','select',16)
+assignin('base','color',[0.7 0.7 1])
 % Hint: get(hObject,'Value') returns toggle state of SF45444
 
 
@@ -342,8 +360,9 @@ function SF44444_Callback(hObject, eventdata, handles)
 % hObject    handle to SF44444 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum
-selectionNum = 17;
+assignin('base','count',0)
+assignin('base','select',17)
+assignin('base','color',[0.9 0.4 0.4])
 % Hint: get(hObject,'Value') returns toggle state of SF44444
 
 
@@ -352,21 +371,31 @@ function WNWCK750_Callback(hObject, eventdata, handles)
 % hObject    handle to WNWCK750 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global selectionNum SolarAmount
-selectionNum = 18;
-SolarAmount = SolarAmount+1;
+assignin('base','count',0)
+assignin('base','select',18)
+assignin('base','color',[0.9 0.6 0.5])
+% Hint: get(hObject,'Value') returns toggle state of WNWCK750
+
+function Delete_Callback(hObject, eventdata, handles)
+% hObject    handle to WNWCK750 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+assignin('base','select',0)
+
+
 % Hint: get(hObject,'Value') returns toggle state of WNWCK750
 
 
 % --- Executes on mouse press over axes background.
 function axes1_ButtonDownFcn(hObject, eventdata, handles)
-global selectionNum Wattage SolarAmount
-if selectionNum == 1;
-    print('plee')
-end
-getappdata(0,'selection')
-SolarAmount
-colorOption = get(get(handles.powerOption,'SelectedObject'),'String')
+
+% hold on
+% for c=1:15:size(image,2)
+%     for b=1:15:size(image,1)
+%     square=rectangle('position',[c b 15 15],'PickableParts','all','visible','off','FaceColor','b','ButtonDownFcn',@boxCallback);
+%     end
+% end 
 
 
 % --- Executes during object deletion, before destroying properties.
@@ -381,25 +410,7 @@ function reset_Callback(hObject, eventdata, handles)
 % hObject    handle to reset (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-global image SolarAmount WindAmount cost Wattage...
-    prevCost prevWat prevWind prevSol count
 
-prevSol(count) = SolarAmount;
-SolarAmount = 0;
-prevWind(count) = WindAmount;
-WindAmount = 0;
-prevCost(count) = cost;
-cost = 0;
-prevWat(count) = Wattage;
-Wattage = 0;
-count = count + 1;
-
-set(handles.SolarAmount,'String',SolarAmount);
-fprintf('String',WindAmount);
-fprintf('$%.2f',cost);
-fprintf('%.2f',Wattage);
-axes(handles.axes1);
-imshow(image)
 
 
 
@@ -494,21 +505,10 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-
-% --- Executes on button press on Finish and Print Bill of Materials
-function pushbutton4_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton4 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-load Solar_data.mat
-cell_sol=struct2cell(sol_data)
-evalin('base','countB');
-
-%fprintf('%.0f| %s|',evalin('base','countB')
-
-
-% --- Executes on button press in pushbutton5.
-function pushbutton5_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton5 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
+% % --- Executes on button press in Delete.
+% function radiobutton22_Callback(hObject, eventdata, handles)
+% % hObject    handle to Delete (see GCBO)
+% % eventdata  reserved - to be defined in a future version of MATLAB
+% % handles    structure with handles and user data (see GUIDATA)
+% 
+% % Hint: get(hObject,'Value') returns toggle state of Delete
