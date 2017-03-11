@@ -1,5 +1,11 @@
 function boxCallback(clicked,~)
-  clicked.Visible='on';
+clicked.Visible='on'
+%     if clicked.Visible=='off'
+%        clicked.Visible='on'
+%     else
+%        clicked.Visible='off'
+%     end
+        
   clicked.FaceColor = evalin('base','color');
 %   assignin('base','count',count+1)
   color = evalin('base','color');
@@ -20,4 +26,12 @@ function boxCallback(clicked,~)
           
           
   end
+  selectionNum=evalin('base','selectionNum');
+  position=clicked.Position(1:2)
+  clicked.FaceColor
+  evalin('base','countArrayPlot1')
+  xposition=(ceil((position(1)/15)));
+  yposition=(ceil((position(2)/15)));
+  countArrayPlot1(xposition,yposition)=selectionNum
+  assignin('base','countArrayPlot1',countArrayPlot1+countArrayPlot1)
 end
