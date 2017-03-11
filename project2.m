@@ -22,7 +22,7 @@ function varargout = project2(varargin)
 
 % Edit the above text to modify the response to help project2
 
-% Last Modified by GUIDE v2.5 10-Mar-2017 20:21:41
+% Last Modified by GUIDE v2.5 10-Mar-2017 22:17:31
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -56,6 +56,9 @@ assignin('base','countR',0)
 assignin('base','countB',0)
 assignin('base','countM',0)
 assignin('base','countCyan',0)
+
+% assignin('base','countArrayPlot1',[0 0 0;0 0 0;0 0 0]);
+
 % Choose default command line output for project2
 handles.output = hObject;
 
@@ -107,6 +110,10 @@ if (strcmp(PlotChoice,'Plot 1'))
     image = imread('plot1.jpg');
     
     imshow(image)
+     b=size([1:15:size(image,1)]);
+     c=size([1:15:size(image,2)]);
+     
+  assignin('base','countArrayPlot1',zeros(b(2),c(2)));
     
     for c=1:15:size(image,2)
         for b=1:15:size(image,1)
@@ -120,6 +127,8 @@ elseif (strcmp(PlotChoice,'Plot 2'))
     image = imread('plot2.jpg');
     
     imshow(image)
+    
+   %assignin('base','countArrayPlot2',zeros(size(1:15:size(image,1)),(size(1:15:size(image,2)))));
 
     for c=1:15:size(image,2)
 
@@ -135,6 +144,8 @@ elseif (strcmp(PlotChoice,'Plot 3'))
     
     imshow(image);
     
+   % assignin('base','countArrayPlot3',zeros(size(1:15:size(image,1)),(size(1:15:size(image,2)))));
+    
     for c=1:15:size(image,2)
         for b=1:15:size(image,1)
           square=rectangle('position',[c b 15 15],'PickableParts','all','visible','off','FaceColor','b','ButtonDownFcn',@boxCallback); 
@@ -149,10 +160,11 @@ assignin('base','image',image);
 % --- Executes on button press in SF50048.
 function SF50048_Callback(hObject, eventdata, handles)
 global selectionNum
-selectionNum = 1;
+assignin('base','selectionNum',1);
 setappdata(0,'selection',selectionNum)
 assignin('base','color','b')
 assignin('base','count',0)
+%assignin('base','SF5',evalin('base',)
 % Hint: get(hObject,'Value') returns toggle state of SF50048
 
 
@@ -493,3 +505,8 @@ evalin('base','countB');
 %fprintf('%.0f| %s|',evalin('base','countB')
 
 
+% --- Executes on button press in pushbutton5.
+function pushbutton5_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton5 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
