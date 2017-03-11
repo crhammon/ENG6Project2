@@ -110,8 +110,10 @@ if (strcmp(PlotChoice,'Plot 1'))
     image = imread('plot1.jpg');
     
     imshow(image)
-     b=size([1:15:size(image,1)]);
-     c=size([1:15:size(image,2)]);
+     b=size([1:15:size(image,1)]);%gives number of rows
+     assignin('base','b',b)
+     c=size([1:15:size(image,2)]);%gives number of columns
+     assignin('base','c',c)
      
   assignin('base','countArrayPlot1',zeros(b(2),c(2)));
     

@@ -27,11 +27,11 @@ clicked.Visible='on'
           
   end
   selectionNum=evalin('base','selectionNum');
-  position=clicked.Position(1:2)
-  clicked.FaceColor
-  evalin('base','countArrayPlot1')
-  xposition=(ceil((position(1)/15)));
-  yposition=(ceil((position(2)/15)));
-  countArrayPlot1(xposition,yposition)=selectionNum
-  assignin('base','countArrayPlot1',countArrayPlot1+countArrayPlot1)
+  position=clicked.Position(1:2);
+  clicked.FaceColor;
+  countArrayPlot1=evalin('base','countArrayPlot1');
+  xpos=(ceil((position(2)/15)));
+  ypos=(ceil((position(1)/15)));
+  countArrayPlot1(xpos,ypos)=selectionNum;
+  assignin('base','countArrayPlot1',countArrayPlot1)
 end
