@@ -1,11 +1,11 @@
 function boxCallback(clicked,~)
   clicked.Visible='on';
   clicked.FaceColor = evalin('base','color');
-  position = clicked.Position
+  position = clicked.Position;
   count = evalin('base','count');
   number = evalin('base','select');
+  
   if evalin('base','count')==10
-
       errordlg('You have reached your limit for this selection! Please choose a different option for placement.')
 
       error
@@ -14,7 +14,6 @@ function boxCallback(clicked,~)
   switch number
       case 0
           clicked.Visible = 'off';
-          disp('p')
           
       case 1
           % set an array proportional to the rectangular array to put
@@ -76,17 +75,44 @@ function boxCallback(clicked,~)
           
   end
   
+  name = evalin('base','name')
+  
+  switch name
+      
+      case 'Plot1.jpg'
+          array = evalin('base','Plot1Info');
+                  
+      case 'Plot2.jpg'
+          array = evalin('base','Plot2Info');
+            
+      case 'Plot3.jpg'
+          array = evalin('base','Plot3Info');
+            
+  end
+  
   selectionNum=evalin('base','select');
 
   position=clicked.Position(1:2);
 
-  countArrayPlot1=evalin('base','countArrayPlot1');
+%   countArrayPlot1=evalin('base','countArrayPlot1');
 
   xpos=(ceil((position(2)/15)));
 
   ypos=(ceil((position(1)/15)));
 
-  countArrayPlot1(xpos,ypos)=selectionNum;
-
-  assignin('base','countArrayPlot1',countArrayPlot1)
+  array(xpos,ypos)=selectionNum;
+  
+  switch name
+      
+    case 'Plot1.jpg'
+        assignin('base','Plot1Info',array)
+                  
+    case 'Plot2.jpg'
+        assignin('base','Plot2Info',array)
+            
+    case 'Plot3.jpg'
+        assignin('base','Plot3Info',array)
+            
+  end
+  
 end
