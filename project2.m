@@ -41,6 +41,14 @@ assignin('base','count16',0)
 assignin('base','count17',0)
 assignin('base','count18',0)
 assignin('base','select',1)
+assignin('base','SolAmnt',0)
+assignin('base','WindAmnt',0)
+assignin('base','WattAmnt',0)
+assignin('base','Cost',0)
+load Fargo.mat
+assignin('base','SolAvg',mean(Fargo_sol));
+assignin('base','WindAvg',mean(Fargo_win));
+
 
 
 image=imread('plot1.jpg');
@@ -525,15 +533,3 @@ function PrintBill_Callback(hObject, eventdata, handles)
 % hObject    handle to PrintBill (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
-
-
-
-
-
-
-
-
-
-
-

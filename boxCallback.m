@@ -4,6 +4,13 @@ function boxCallback(clicked,~)
   position = clicked.Position;
   count = evalin('base','count');
   number = evalin('base','select');
+  cost = evalin('base','Cost');
+  solAmnt = evalin('base','SolAmnt');
+  windAmnt = evalin('base','WindAmnt');
+  watts = evalin('base','WattAmnt');
+  load Fargo.mat
+  solPower = mean(Fargo_sol);
+  winPower = mean(Fargo_win);
   
   if evalin('base','count')==10
       errordlg('You have reached your limit for this selection! Please choose a different option for placement.')
@@ -75,7 +82,7 @@ function boxCallback(clicked,~)
           
   end
   
-  name = evalin('base','name')
+  name = evalin('base','name');
   
   switch name
       
