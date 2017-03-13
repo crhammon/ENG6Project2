@@ -22,7 +22,7 @@ function varargout = Proj2V3(varargin)
 
 % Edit the above text to modify the response to help Proj2V3
 
-% Last Modified by GUIDE v2.5 12-Mar-2017 16:52:16
+% Last Modified by GUIDE v2.5 12-Mar-2017 18:46:01
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -921,4 +921,22 @@ end
 PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
 
 
+% --- Executes on button press in load.
+function load_Callback(hObject, eventdata, handles)
+% hObject    handle to load (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
 
+
+% --- Executes on button press in saveImage.
+function saveImage_Callback(hObject, eventdata, handles)
+% hObject    handle to saveImage (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in printMaterials.
+function printMaterials_Callback(hObject, eventdata, handles)
+% hObject    handle to printMaterials (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
