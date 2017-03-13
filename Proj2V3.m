@@ -98,6 +98,7 @@ assignin('base','PlotChoice',PlotChoice)
 % while evalin('base','count') ~= 11
 if (strcmp(PlotChoice,'Plot 1'))
     
+   
 
 
     assignin('base','name','Plot1.jpg');
@@ -106,6 +107,7 @@ if (strcmp(PlotChoice,'Plot 1'))
     imshow(image);
     
 array=evalin('base','Plot1Info');
+assignin('base','numbersCrunched',[0 0;0 0;0 0;0 0;0 0;0 0])
 hold on
 for c=1:size(array,1)
 
@@ -881,23 +883,6 @@ function EnergyChoice_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
-
-% --- Executes on button press in place.
-function place_Callback(hObject, eventdata, handles)
-% hObject    handle to place (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-assignin('base','status','on')
-
-
-% --- Executes on button press in remove.
-function remove_Callback(hObject, eventdata, handles)
-% hObject    handle to remove (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-assignin('base','status','off')
 
 
 % --- Executes on button press in reset.
