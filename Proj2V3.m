@@ -22,7 +22,7 @@ function varargout = Proj2V3(varargin)
 
 % Edit the above text to modify the response to help Proj2V3
 
-% Last Modified by GUIDE v2.5 12-Mar-2017 19:59:44
+% Last Modified by GUIDE v2.5 13-Mar-2017 12:11:36
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -51,8 +51,9 @@ function Proj2V3_OpeningFcn(hObject, eventdata, handles, varargin)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 % varargin   command line arguments to Proj2V3 (see VARARGIN)
-% logo=imread('logo.jpg');
-% imshow(logo);
+logo=imread('Welcome.png');
+imshow(logo);
+
 image=imread('plot1.jpg');
 b=size([1:15:size(image,1)]);%gives number of rows
 c=size([1:15:size(image,2)]);%gives number of columns
@@ -99,14 +100,18 @@ PlotChoice = contents{get(hObject,'Value')};%returns selected item from popupmen
 assignin('base','PlotChoice',PlotChoice)
 % while evalin('base','count') ~= 11
 if (strcmp(PlotChoice,'Plot 1'))
-    
+    cla
    
 
 
     assignin('base','name','Plot1.jpg');
     
     image = imread('plot1.jpg');
+    image(:,1:15:end,:)=0;
+    image(1:15:end,:,:)=0;
     imshow(image);
+    
+    
     
 array=evalin('base','Plot1Info');
 assignin('base','numbersCrunched',[0 0;0 0;0 0;0 0;0 0;0 0])
@@ -172,15 +177,19 @@ for c=1:size(array,1)
         end
     end
 end
-   
-    
 
+elseif (strcmp(PlotChoice,'Home Screen'))
+    cla
+    logo=imread('Welcome.png');
+    imshow(logo);
 elseif (strcmp(PlotChoice,'Plot 2'))
+    cla
     
     assignin('base','name','Plot2.jpg');
     
     image = imread('plot2.jpg');
-    
+    image(:,1:15:end,:)=0;
+    image(1:15:end,:,:)=0;
     imshow(image)
     array=evalin('base','Plot2Info');
 hold on
@@ -247,11 +256,13 @@ for c=1:size(array,1)
 end
     
 elseif (strcmp(PlotChoice,'Plot 3'))
+    cla
     
     assignin('base','name','Plot3.jpg')
     
     image = imread('plot3.jpg');
-    
+    image(:,1:15:end,:)=0;
+    image(1:15:end,:,:)=0;
     imshow(image);
     
     array=evalin('base','Plot3Info');
@@ -318,7 +329,7 @@ for c=1:size(array,1)
     end
 end
 end
-x=1;
+
 % Hints: contents = cellstr(get(hObject,'String')) returns PlotChoice contents as cell array
 %        contents{get(hObject,'Value')} returns selected item from PlotChoice
 
@@ -345,9 +356,13 @@ EnergyChoice = contents{get(hObject,'Value')};%returns selected item from popupm
 if (strcmp(EnergyChoice,'Sunforce 50048/ Amorphous Silicon/ 15 W/ 42.5in x 1.5in x 16in / 11 lbs / $279.95')) % #1
     inputcell=inputdlg('How many would you like to place?(limit 10)');
     limit=1;
-    limit=str2double(cell2mat(inputcell));
+    limit=ceil(str2double(cell2mat(inputcell)));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -378,7 +393,11 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -408,7 +427,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell))
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -438,7 +461,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -468,7 +495,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -498,7 +529,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -528,7 +563,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -558,7 +597,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -588,7 +631,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -600,15 +647,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
             'visible','on','FaceColor',[0.5 0.5 0.5],'ButtonDownFcn',@boxCallbackVer2);
         if evalin('base','PlotChoice')=='Plot 1'
             Plot1Info=evalin('base','Plot1Info');
-            Plot1Info(row,col)=10;
+            Plot1Info(row,col)=9;
             assignin('base','Plot1Info',Plot1Info);
         elseif evalin('base','PlotChoice')=='Plot 2'
             Plot2Info=evalin('base','Plot2Info');
-            Plot2Info(row,col)=10;
+            Plot2Info(row,col)=9;
             assignin('base','Plot2Info',Plot2Info);
         elseif evalin('base','PlotChoice')=='Plot 3'
             Plot3Info=evalin('base','Plot3Info');
-            Plot3Info(row,col)=10;
+            Plot3Info(row,col)=9;
             assignin('base','Plot3Info',Plot3Info);
         end
 PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
@@ -618,7 +665,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -648,7 +699,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -678,7 +733,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -708,7 +767,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -738,7 +801,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -768,7 +835,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -798,7 +869,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -828,7 +903,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -858,7 +937,11 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     limit=1;
     limit=str2double(cell2mat(inputcell));
     if limit>10
-        error
+        errordlg('Limit is 10!')
+    elseif limit==0
+        errordlg('If you don''t want to put any of these then why did you select it?!')
+    elseif limit<0
+        errordlg('You may not place negative equipment...')
     end
     for c=1:limit
         [x,y]=ginput(1);
@@ -932,7 +1015,7 @@ function load_Callback(hObject, eventdata, handles)
 % hObject    handle to load (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-d=menu('Load Data for Which Plot?','Plot 1','Plot 2','Plot 3')
+d=menu('Load Data for Which Image?','Image 1','Image 2','Image 3')
 A=uiimport;
 A=struct2cell(A);
 A=cell2mat(A);
@@ -984,3 +1067,36 @@ switch d
         save([path,file],'Plot3Info');
 end
     
+
+
+
+function edit2_Callback(hObject, eventdata, handles)
+% hObject    handle to edit2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit2 as text
+%        str2double(get(hObject,'String')) returns contents of edit2 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in about.
+function about_Callback(hObject, eventdata, handles)
+% hObject    handle to about (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+h=msgbox({'Neptune Software (LLC)' 'Charles Hammond' 'Ricky Obregon' 'Karthik Ramesh' ...
+    '"Do not wait to strike till the iron is hot;' 'but make it hot by striking."' ...
+    '-William Butler Yeats'})
