@@ -22,7 +22,7 @@ function varargout = Proj2V3(varargin)
 
 % Edit the above text to modify the response to help Proj2V3
 
-% Last Modified by GUIDE v2.5 12-Mar-2017 18:46:01
+% Last Modified by GUIDE v2.5 12-Mar-2017 19:59:44
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -51,6 +51,8 @@ function Proj2V3_OpeningFcn(hObject, eventdata, handles, varargin)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 % varargin   command line arguments to Proj2V3 (see VARARGIN)
+% logo=imread('logo.jpg');
+% imshow(logo);
 image=imread('plot1.jpg');
 b=size([1:15:size(image,1)]);%gives number of rows
 c=size([1:15:size(image,2)]);%gives number of columns
@@ -911,6 +913,20 @@ function load_Callback(hObject, eventdata, handles)
 % hObject    handle to load (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+d=menu('Load Data for Which Plot?','Plot 1','Plot 2','Plot 3')
+A=uiimport;
+A=struct2cell(A);
+A=cell2mat(A);
+    switch d
+        case 1
+            assignin('base','Plot1Info',A);
+        case 2
+            assignin('base','Plot2Info',A);
+        case 3
+            assignin('base','Plot3Info',A);
+    end
+PlotChoice_Callback(handles.PlotChoice, eventdata, handles)
+
 
 
 % --- Executes on button press in saveImage.
@@ -925,3 +941,27 @@ function printMaterials_Callback(hObject, eventdata, handles)
 % hObject    handle to printMaterials (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in saveData.
+function saveData_Callback(hObject, eventdata, handles)
+% hObject    handle to saveData (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+d=menu('Save Data for Which Plot?','Plot 1','Plot 2','Plot 3')
+switch d
+    case 1
+        %save('Plot1Info.mat','Plot1Info')
+        [file,path] = uiputfile({'*.mat';'*.txt'},'Save as')
+        
+        Plot1Info=evalin('base','Plot1Info')
+        a=mat2str([path file])
+        save(a,'Plot1Info')
+    case 2
+        %save('Plot2Info.mat','Plot2Info')
+        [file,path] = uiputfile({'*.mat';'*.txt'},'Save as');
+    case 3
+        %save('Plot3Info.mat','Plot2Info')
+        [file,path] = uiputfile({'*.mat';'*.txt'},'Save as');
+end
+    
