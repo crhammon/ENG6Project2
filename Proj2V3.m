@@ -917,8 +917,8 @@ if evalin('base','PlotChoice')=='Plot 1'
     assignin('base','Plot1Info',Plot1Info);
 elseif evalin('base','PlotChoice')=='Plot 2'
     Plot2Info=evalin('base','Plot2Info');
-    assignin('base','Plot2Info',Plot2Info);
     Plot2Info(:,:)=0;
+    assignin('base','Plot2Info',Plot2Info);
 elseif evalin('base','PlotChoice')=='Plot 3'
     Plot3Info=evalin('base','Plot3Info');
     Plot3Info(:,:)=0;
@@ -970,19 +970,17 @@ function saveData_Callback(hObject, eventdata, handles)
 d=menu('Save Data for Which Plot?','Plot 1','Plot 2','Plot 3')
 switch d
     case 1
-        %save('Plot1Info.mat','Plot1Info')
-        [file,path] = uiputfile({'*.mat';'*.txt'},'Save as')
-        
+        [file,path] = uiputfile({'*.mat';'*.txt'},'Save as');
         Plot1Info=evalin('base','Plot1Info');
-        a=mat2str([path file])
-        assignin('base','a',a)
-        
-        save(a,'Plot1Info')
+        save([path,file],'Plot1Info');
     case 2
-        %save('Plot2Info.mat','Plot2Info')
         [file,path] = uiputfile({'*.mat';'*.txt'},'Save as');
+        Plot2Info=evalin('base','Plot2Info');
+        save([path,file],'Plot2Info');
+        
     case 3
-        %save('Plot3Info.mat','Plot2Info')
         [file,path] = uiputfile({'*.mat';'*.txt'},'Save as');
+        Plot3Info=evalin('base','Plot3Info');
+        save([path,file],'Plot3Info');
 end
     
