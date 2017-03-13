@@ -341,6 +341,7 @@ function EnergyChoice_Callback(hObject, eventdata, handles)
 contents = cellstr(get(hObject,'String')); %returns popupmenu1 contents as cell array
 EnergyChoice = contents{get(hObject,'Value')};%returns selected item from popupmenu1
 
+
 if (strcmp(EnergyChoice,'Sunforce 50048/ Amorphous Silicon/ 15 W/ 42.5in x 1.5in x 16in / 11 lbs / $279.95')) % #1
     inputcell=inputdlg('How many would you like to place?(limit 10)');
     limit=1;
@@ -370,6 +371,7 @@ if (strcmp(EnergyChoice,'Sunforce 50048/ Amorphous Silicon/ 15 W/ 42.5in x 1.5in
             assignin('base','Plot3Info',Plot3Info);
         end
     end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     
 elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in x 2in/ 22lbs/ $499.95'))% #2
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -399,6 +401,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=2;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'Instapark SPCC-5W/ Mono-crystalline/ 5 W/ 11in x 8in x 1in/ 2.8 lbs/ $34.95')) %  #3
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -428,6 +431,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=3;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'Instapark SP-100W/ Mono-crystalline/ 100 W/ 45in x 1.5in x 26in/ 21 lbs/ $319.99')) %  #4
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -457,6 +461,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=4;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'Instapark SPCC-30W/ Mono-crystalline/ 30 W/ 21.5in x 1.1in x 17.2in/ 7.2 lbs/ $114.70')) %  #5
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -486,6 +491,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=5;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'Instapark SP-10W/ Mono-crystalline/ 10 W/ 14in x 11in x 1in/ 2.8 lbs/ $39.95')) %  #6
     inputcell=inputdlg('How many would you like to place?(limit 10)')
@@ -515,6 +521,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=6;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'Ramsond/ 100SP/ Mono-crystalline/ 100 W/ 47in x 1.5in x 21.8in/ 12 lbs/ $245.99')) %  #7
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -544,6 +551,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=7;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'Epcom WK50-12/ Polycrystalline/ 50 W/ 32in x 22in x 1.4in/ 12 lbs/ $99.99')) %  #8
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -573,6 +581,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=8;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'Sun Power E18/ Mono-crystalline/ 400 W/ 41.18in x 81.36in x 2.13in/ 56 lbs / $249.50')) %  #9
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -602,6 +611,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=10;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'Sun Power T5/ Mono-crystalline/ 320 W/ 43.06in x 75.13in x 8.37in/ 47 lbs/ $199.99')) %  #10
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -631,6 +641,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=10;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'Windmax HY 1000-5/ Wind Generator/ 1000 W/ 15ft/ $999.99')) %  #11
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -660,6 +671,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=11;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'Windmax HY 400/ Wind Generator/ 500 W/ 13 ft/ $686.40')) %  #12
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -689,6 +701,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=12;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'GudCraft WG400/ Wind Generator/ 400 W/ 13 ft/ $399.00')) %  #13
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -718,6 +731,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=13;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'GudCraft WG700/ Wind Generator/ 700 W/ 13 ft/ $449.00')) %  #14
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -747,6 +761,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=14;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'All Power America APWT400A/ 400 W/ 10 ft/ $476.93')) %  #15
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -776,6 +791,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=15;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'Sunforce 45444/ Wind Turbine/ 600 W/ 10 ft/ $749.99')) %  #16
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -805,6 +821,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=16;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'Sunforce 44444/ Wind Generator/ 400 W/ 10 ft/ $474.34')) %  #17
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -834,6 +851,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=17;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     elseif (strcmp(EnergyChoice,'WindyNation WCK-750/ Wind Turbine/ 750 W/ 15 ft/ $999.98')) %  #18
     inputcell=inputdlg('How many would you like to place?(limit 10)');
@@ -863,6 +881,7 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
             Plot3Info(row,col)=18;
             assignin('base','Plot3Info',Plot3Info);
         end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     end
     
 end
@@ -954,8 +973,10 @@ switch d
         %save('Plot1Info.mat','Plot1Info')
         [file,path] = uiputfile({'*.mat';'*.txt'},'Save as')
         
-        Plot1Info=evalin('base','Plot1Info')
+        Plot1Info=evalin('base','Plot1Info');
         a=mat2str([path file])
+        assignin('base','a',a)
+        
         save(a,'Plot1Info')
     case 2
         %save('Plot2Info.mat','Plot2Info')
