@@ -22,7 +22,7 @@ function varargout = Proj2V3(varargin)
 
 % Edit the above text to modify the response to help Proj2V3
 
-% Last Modified by GUIDE v2.5 12-Mar-2017 12:49:35
+% Last Modified by GUIDE v2.5 12-Mar-2017 16:52:16
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -91,6 +91,7 @@ function PlotChoice_Callback(hObject, eventdata, handles)
 % hObject    handle to PlotChoice (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+%localfunctions
 contents = cellstr(get(hObject,'String')); %returns popupmenu1 contents as cell array
 PlotChoice = contents{get(hObject,'Value')};%returns selected item from popupmenu1
 assignin('base','PlotChoice',PlotChoice)
@@ -897,3 +898,27 @@ function remove_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 assignin('base','status','off')
+
+
+% --- Executes on button press in reset.
+function reset_Callback(hObject, eventdata, handles)
+% hObject    handle to reset (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+if evalin('base','PlotChoice')=='Plot 1'
+    Plot1Info=evalin('base','Plot1Info');
+    Plot1Info(:,:)=0;
+    assignin('base','Plot1Info',Plot1Info);
+elseif evalin('base','PlotChoice')=='Plot 2'
+    Plot2Info=evalin('base','Plot2Info');
+    assignin('base','Plot2Info',Plot2Info);
+    Plot2Info(:,:)=0;
+elseif evalin('base','PlotChoice')=='Plot 3'
+    Plot3Info=evalin('base','Plot3Info');
+    Plot3Info(:,:)=0;
+    assignin('base','Plot3Info',Plot3Info);
+end
+PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
+
+
+
