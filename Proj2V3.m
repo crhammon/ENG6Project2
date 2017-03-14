@@ -22,7 +22,7 @@ function varargout = Proj2V3(varargin)
 
 % Edit the above text to modify the response to help Proj2V3
 
-% Last Modified by GUIDE v2.5 13-Mar-2017 12:11:36
+% Last Modified by GUIDE v2.5 14-Mar-2017 09:51:26
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -103,15 +103,12 @@ if (strcmp(PlotChoice,'Plot 1'))
     cla
    
 
-
     assignin('base','name','Plot1.jpg');
     
     image = imread('plot1.jpg');
-    image(:,1:15:end,:)=0;
-    image(1:15:end,:,:)=0;
+    image(:,15:15:end,:)=0;
+    image(15:15:end,:,:)=0;
     imshow(image);
-    
-    
     
 array=evalin('base','Plot1Info');
 assignin('base','numbersCrunched',[0 0;0 0;0 0;0 0;0 0;0 0])
@@ -265,6 +262,7 @@ elseif (strcmp(PlotChoice,'Plot 3'))
     image(1:15:end,:,:)=0;
     imshow(image);
     
+    assignin('base','frame',getframe(handles.axes1))
     array=evalin('base','Plot3Info');
 hold on
 for c=1:size(array,1)
@@ -354,6 +352,7 @@ EnergyChoice = contents{get(hObject,'Value')};%returns selected item from popupm
 
 
 if (strcmp(EnergyChoice,'Sunforce 50048/ Amorphous Silicon/ 15 W/ 42.5in x 1.5in x 16in / 11 lbs / $279.95')) % #1
+    assignin('base','multiplier',5) %7.083square feet per panel; 15W/10.7ft^2=1.4W/ft^2; so 5 panels/40ftsquared.
     inputcell=inputdlg('How many would you like to place?(limit 10)');
     limit=1;
     limit=ceil(str2double(cell2mat(inputcell)));
@@ -389,6 +388,7 @@ if (strcmp(EnergyChoice,'Sunforce 50048/ Amorphous Silicon/ 15 W/ 42.5in x 1.5in
 PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
     
 elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in x 2in/ 22lbs/ $499.95'))% #2
+    assignin('base','multiplier',5) %7.083square feet per panel; 15W/10.7ft^2=1.4W/ft^2; so 5 panels/40ftsquared.
     inputcell=inputdlg('How many would you like to place?(limit 10)');
     limit=1;
     limit=str2double(cell2mat(inputcell));
@@ -1100,3 +1100,11 @@ function about_Callback(hObject, eventdata, handles)
 h=msgbox({'Neptune Software (LLC)' 'Charles Hammond' 'Ricky Obregon' 'Karthik Ramesh' ...
     '"Do not wait to strike till the iron is hot;' 'but make it hot by striking."' ...
     '-William Butler Yeats'})
+
+
+% --- Executes on button press in wisdom.
+function wisdom_Callback(hObject, eventdata, handles)
+% hObject    handle to wisdom (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
