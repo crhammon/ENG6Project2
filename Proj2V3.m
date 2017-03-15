@@ -1042,8 +1042,8 @@ function printMaterials_Callback(hObject, eventdata, handles)
 % hObject    handle to printMaterials (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-PlotChoice2=evalin('base','PlotChoice');
-if PlotChoice2 == 'Fargo, ND'
+ name2=evalin('base','name');
+if name2 == 'Plot1.jpg'
     Plot1Info=evalin('base','Plot1Info');
     
     sf500=find(Plot1Info == 1);
@@ -1120,107 +1120,165 @@ if PlotChoice2 == 'Fargo, ND'
     
     amounttotal=totalsf500+totalsf398+totalisp5w+totalisp100w+totalisp30w+totalisp10w+totalras100+totalepcom+totalspe18+totalspt5+totalwhy1000+totalwhy400+totalwg400+totalwg700+totalapwt+totalsf454+totalsf444+totalwck750;
     costtotal= costsf500+costsf398+ costisp5w+costisp100w+costisp30w+costisp10w+costras100+costepcom+costspe18+costspt5+costwhy1000+costwhy400+costwg400+costwg700+costapwt+costsf454+costsf444+costwck750;
-    file=fopen('Bill_Of_Materials_Plot_1','w');
+    [filename, pathname] = uiputfile('Bill_Of_Materials_Fargo_ND.txt');
+    path_file=fullfile(pathname,filename);
+    file=fopen(path_file,'w');
     fprintf(file,'Bill of Materials : Fargo, ND\r\n');
     fprintf(file,'Material\t\t');
     fprintf(file,'Amount\t\t\t\t');
     fprintf(file,'Cost\t\t\t\r\n');
+    
+    if totalsf500>0
     fprintf(file,'Sunforce 50048\t\t');
     fprintf(file,num2str(totalsf500));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costsf500));
     fprintf(file,'\r\n');
+    end
+    
+    if totalsf398>0
     fprintf(file,'Sunforce 39810\t\t');
     fprintf(file,num2str(totalsf398));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costsf398));
     fprintf(file,'\r\n');
+    end
+    
+    if totalisp5w>0
     fprintf(file,'Instapark SPCC-5W\t');
     fprintf(file,num2str(totalisp5w));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costisp5w));
     fprintf(file,'\r\n');
+    end
+    
+    if totalisp100w>0
     fprintf(file,'Instapark SP-100W\t');
     fprintf(file,num2str(totalisp100w));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costisp100w));
     fprintf(file,'\r\n');
+    end
+    
+    if totalisp30w>0
     fprintf(file,'Instapark SPCC-30W\t');
     fprintf(file,num2str(totalisp30w));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costisp30w));
     fprintf(file,'\r\n');
+    end
+    
+    if totalisp10w>0
     fprintf(file,'Instapark SP-10w\t');
     fprintf(file,num2str(totalisp10w));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costisp10w));
     fprintf(file,'\r\n');
+    end
+    
+    if totalras100>0
     fprintf(file,'Rasmond 100SP\t\t');
     fprintf(file,num2str(totalras100));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costras100));
     fprintf(file,'\r\n');
+    end
+    
+    if totalepcom>0
     fprintf(file,'Epcom Wk50-12\t\t');
     fprintf(file,num2str(totalepcom));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costepcom));
     fprintf(file,'\r\n');
+    end
+    
+    if totalspe18>0
     fprintf(file,'Sun Power E18\t\t');
     fprintf(file,num2str(totalspe18));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costspe18));
     fprintf(file,'\r\n');
+    end
+    
+    if totalspt5>0
     fprintf(file,'Sun Power T5\t\t');
     fprintf(file,num2str(totalspt5));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costspt5));
     fprintf(file,'\r\n');
+    end
+    
+    if totalwhy1000>0
     fprintf(file,'Windmax HY1000-5\t');
     fprintf(file,num2str(totalwhy1000));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costwhy1000));
     fprintf(file,'\r\n');
+    end
+    
+    if totalwhy400>0
     fprintf(file,'Windmax HY400\t\t');
     fprintf(file,num2str(totalwhy400));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costwhy400));
     fprintf(file,'\r\n');
+    end
+    
+    if totalwg400>0
     fprintf(file,'GudCraft WG400\t\t');
     fprintf(file,num2str(totalwg400));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costwg400));
     fprintf(file,'\r\n');
+    end
+    
+    if totalwg700>0
     fprintf(file,'GudCraft WG700\t\t');
     fprintf(file,num2str(totalwg700));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costwg700));
     fprintf(file,'\r\n');
+    end
+    
+    if totalapwt>0
     fprintf(file,'All Power America\t');
     fprintf(file,num2str(totalapwt));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costapwt));
     fprintf(file,'\r\n');
+    end
+    
+    if totalsf454>0
     fprintf(file,'Sunforce 45444\t\t');
     fprintf(file,num2str(totalsf454));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costsf454));
     fprintf(file,'\r\n');
+    end
+    
+    if totalsf444>0
     fprintf(file,'Sunforce 44444\t\t');
     fprintf(file,num2str(totalsf444));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costsf444));
     fprintf(file,'\r\n');
+    end
+    
+    if totalwck750>0
     fprintf(file,'WindyNation WCK-750\t');
     fprintf(file,num2str(totalwck750));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costwck750));
     fprintf(file,'\r\n');
+    end
+    
     fprintf(file,'Total\t\t\t');
     fprintf(file,num2str(amounttotal));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costtotal));
-    open('Bill_Of_Materials_Plot_1')
-elseif PlotChoice2 == 'Honolulu, HI'
+    
+    
+elseif name2 == 'Plot2.jpg'
     Plot1Info=evalin('base','Plot2Info');
     
     sf500=find(Plot1Info == 1);
@@ -1297,107 +1355,164 @@ elseif PlotChoice2 == 'Honolulu, HI'
     
     amounttotal=totalsf500+totalsf398+totalisp5w+totalisp100w+totalisp30w+totalisp10w+totalras100+totalepcom+totalspe18+totalspt5+totalwhy1000+totalwhy400+totalwg400+totalwg700+totalapwt+totalsf454+totalsf444+totalwck750;
     costtotal= costsf500+costsf398+ costisp5w+costisp100w+costisp30w+costisp10w+costras100+costepcom+costspe18+costspt5+costwhy1000+costwhy400+costwg400+costwg700+costapwt+costsf454+costsf444+costwck750;
-    file=fopen('Bill_Of_Materials_Plot_2','w');
-    fprintf(file,'Bill of Materials : Honolulu, HI\r\n');
+    [filename, pathname] = uiputfile('Bill_Of_Materials_Honolulu_HI.txt');
+    path_file=fullfile(pathname,filename);
+    file=fopen(path_file,'w');
+    fprintf(file,'Bill of Materials : Honolulu,HI\r\n');
     fprintf(file,'Material\t\t');
     fprintf(file,'Amount\t\t\t\t');
     fprintf(file,'Cost\t\t\t\r\n');
+    
+    if totalsf500>0
     fprintf(file,'Sunforce 50048\t\t');
     fprintf(file,num2str(totalsf500));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costsf500));
     fprintf(file,'\r\n');
+    end
+    
+    if totalsf398>0
     fprintf(file,'Sunforce 39810\t\t');
     fprintf(file,num2str(totalsf398));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costsf398));
     fprintf(file,'\r\n');
+    end
+    
+    if totalisp5w>0
     fprintf(file,'Instapark SPCC-5W\t');
     fprintf(file,num2str(totalisp5w));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costisp5w));
     fprintf(file,'\r\n');
+    end
+    
+    if totalisp100w>0
     fprintf(file,'Instapark SP-100W\t');
     fprintf(file,num2str(totalisp100w));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costisp100w));
     fprintf(file,'\r\n');
+    end
+    
+    if totalisp30w>0
     fprintf(file,'Instapark SPCC-30W\t');
     fprintf(file,num2str(totalisp30w));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costisp30w));
     fprintf(file,'\r\n');
+    end
+    
+    if totalisp10w>0
     fprintf(file,'Instapark SP-10w\t');
     fprintf(file,num2str(totalisp10w));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costisp10w));
     fprintf(file,'\r\n');
+    end
+    
+    if totalras100>0
     fprintf(file,'Rasmond 100SP\t\t');
     fprintf(file,num2str(totalras100));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costras100));
     fprintf(file,'\r\n');
+    end
+    
+    if totalepcom>0
     fprintf(file,'Epcom Wk50-12\t\t');
     fprintf(file,num2str(totalepcom));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costepcom));
     fprintf(file,'\r\n');
+    end
+    
+    if totalspe18>0
     fprintf(file,'Sun Power E18\t\t');
     fprintf(file,num2str(totalspe18));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costspe18));
     fprintf(file,'\r\n');
+    end
+    
+    if totalspt5>0
     fprintf(file,'Sun Power T5\t\t');
     fprintf(file,num2str(totalspt5));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costspt5));
     fprintf(file,'\r\n');
+    end
+    
+    if totalwhy1000>0
     fprintf(file,'Windmax HY1000-5\t');
     fprintf(file,num2str(totalwhy1000));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costwhy1000));
     fprintf(file,'\r\n');
+    end
+    
+    if totalwhy400>0
     fprintf(file,'Windmax HY400\t\t');
     fprintf(file,num2str(totalwhy400));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costwhy400));
     fprintf(file,'\r\n');
+    end
+    
+    if totalwg400>0
     fprintf(file,'GudCraft WG400\t\t');
     fprintf(file,num2str(totalwg400));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costwg400));
     fprintf(file,'\r\n');
+    end
+    
+    if totalwg700>0
     fprintf(file,'GudCraft WG700\t\t');
     fprintf(file,num2str(totalwg700));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costwg700));
     fprintf(file,'\r\n');
+    end
+    
+    if totalapwt>0
     fprintf(file,'All Power America\t');
     fprintf(file,num2str(totalapwt));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costapwt));
     fprintf(file,'\r\n');
+    end
+    
+    if totalsf454>0
     fprintf(file,'Sunforce 45444\t\t');
     fprintf(file,num2str(totalsf454));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costsf454));
     fprintf(file,'\r\n');
+    end
+    
+    if totalsf444>0
     fprintf(file,'Sunforce 44444\t\t');
     fprintf(file,num2str(totalsf444));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costsf444));
     fprintf(file,'\r\n');
+    end
+    
+    if totalwck750>0
     fprintf(file,'WindyNation WCK-750\t');
     fprintf(file,num2str(totalwck750));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costwck750));
     fprintf(file,'\r\n');
+    end
+    
     fprintf(file,'Total\t\t\t');
     fprintf(file,num2str(amounttotal));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costtotal));
-    open('Bill_Of_Materials_Plot_2')
-elseif PlotChoice2 == 'Miami, FL'
+    
+elseif name2 == 'Plot3.jpg'
     Plot1Info=evalin('base','Plot3Info');
     
     sf500=find(Plot1Info == 1);
@@ -1474,115 +1589,170 @@ elseif PlotChoice2 == 'Miami, FL'
     
     amounttotal=totalsf500+totalsf398+totalisp5w+totalisp100w+totalisp30w+totalisp10w+totalras100+totalepcom+totalspe18+totalspt5+totalwhy1000+totalwhy400+totalwg400+totalwg700+totalapwt+totalsf454+totalsf444+totalwck750;
     costtotal= costsf500+costsf398+ costisp5w+costisp100w+costisp30w+costisp10w+costras100+costepcom+costspe18+costspt5+costwhy1000+costwhy400+costwg400+costwg700+costapwt+costsf454+costsf444+costwck750;
-    file=fopen('Bill_Of_Materials_Plot_3','w');
-    fprintf(file,'Bill of Materials : Miami, FL\r\n');
+    [filename, pathname] = uiputfile('Bill_Of_Materials_Miami_FL.txt');
+    path_file=fullfile(pathname,filename);
+    file=fopen(path_file,'w');
+    fprintf(file,'Bill of Materials : Miami,FL\r\n');
     fprintf(file,'Material\t\t');
     fprintf(file,'Amount\t\t\t\t');
     fprintf(file,'Cost\t\t\t\r\n');
+    
+    if totalsf500>0
     fprintf(file,'Sunforce 50048\t\t');
     fprintf(file,num2str(totalsf500));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costsf500));
     fprintf(file,'\r\n');
+    end
+    
+    if totalsf398>0
     fprintf(file,'Sunforce 39810\t\t');
     fprintf(file,num2str(totalsf398));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costsf398));
     fprintf(file,'\r\n');
+    end
+    
+    if totalisp5w>0
     fprintf(file,'Instapark SPCC-5W\t');
     fprintf(file,num2str(totalisp5w));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costisp5w));
     fprintf(file,'\r\n');
+    end
+    
+    if totalisp100w>0
     fprintf(file,'Instapark SP-100W\t');
     fprintf(file,num2str(totalisp100w));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costisp100w));
     fprintf(file,'\r\n');
+    end
+    
+    if totalisp30w>0
     fprintf(file,'Instapark SPCC-30W\t');
     fprintf(file,num2str(totalisp30w));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costisp30w));
     fprintf(file,'\r\n');
+    end
+    
+    if totalisp10w>0
     fprintf(file,'Instapark SP-10w\t');
     fprintf(file,num2str(totalisp10w));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costisp10w));
     fprintf(file,'\r\n');
+    end
+    
+    if totalras100>0
     fprintf(file,'Rasmond 100SP\t\t');
     fprintf(file,num2str(totalras100));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costras100));
     fprintf(file,'\r\n');
+    end
+    
+    if totalepcom>0
     fprintf(file,'Epcom Wk50-12\t\t');
     fprintf(file,num2str(totalepcom));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costepcom));
     fprintf(file,'\r\n');
+    end
+    
+    if totalspe18>0
     fprintf(file,'Sun Power E18\t\t');
     fprintf(file,num2str(totalspe18));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costspe18));
     fprintf(file,'\r\n');
+    end
+    
+    if totalspt5>0
     fprintf(file,'Sun Power T5\t\t');
     fprintf(file,num2str(totalspt5));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costspt5));
     fprintf(file,'\r\n');
+    end
+    
+    if totalwhy1000>0
     fprintf(file,'Windmax HY1000-5\t');
     fprintf(file,num2str(totalwhy1000));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costwhy1000));
     fprintf(file,'\r\n');
+    end
+    
+    if totalwhy400>0
     fprintf(file,'Windmax HY400\t\t');
     fprintf(file,num2str(totalwhy400));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costwhy400));
     fprintf(file,'\r\n');
+    end
+    
+    if totalwg400>0
     fprintf(file,'GudCraft WG400\t\t');
     fprintf(file,num2str(totalwg400));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costwg400));
     fprintf(file,'\r\n');
+    end
+    
+    if totalwg700>0
     fprintf(file,'GudCraft WG700\t\t');
     fprintf(file,num2str(totalwg700));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costwg700));
     fprintf(file,'\r\n');
+    end
+    
+    if totalapwt>0
     fprintf(file,'All Power America\t');
     fprintf(file,num2str(totalapwt));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costapwt));
     fprintf(file,'\r\n');
+    end
+    
+    if totalsf454>0
     fprintf(file,'Sunforce 45444\t\t');
     fprintf(file,num2str(totalsf454));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costsf454));
     fprintf(file,'\r\n');
+    end
+    
+    if totalsf444>0
     fprintf(file,'Sunforce 44444\t\t');
     fprintf(file,num2str(totalsf444));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costsf444));
     fprintf(file,'\r\n');
+    end
+    
+    if totalwck750>0
     fprintf(file,'WindyNation WCK-750\t');
     fprintf(file,num2str(totalwck750));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costwck750));
     fprintf(file,'\r\n');
+    end
+    
     fprintf(file,'Total\t\t\t');
     fprintf(file,num2str(amounttotal));
     fprintf(file,'\t\t\t\t');
     fprintf(file,num2str(costtotal));
-    open('Bill_Of_Materials_Plot_3')
+    
 end
-
-
 % --- Executes on button press in saveData.
 function saveData_Callback(hObject, eventdata, handles)
 % hObject    handle to saveData (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-d=menu('Save Data for Which Plot?','Fargo, ND','Honolulu, HI','Miami, FL')
+d=menu('Save Data for Which Plot?','Plot 1','Plot 2','Plot 3')
 switch d
     case 1
         [file,path] = uiputfile({'*.mat';'*.txt'},'Save as');
