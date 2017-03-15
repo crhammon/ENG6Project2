@@ -369,6 +369,9 @@ if (strcmp(EnergyChoice,'Sunforce 50048/ Amorphous Silicon/ 15 W/ 42.5in x 1.5in
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.6 0.3 1],'ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
        
         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
@@ -406,6 +409,10 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor','r','ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=2;
@@ -440,6 +447,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor','b','ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=3;
@@ -474,6 +485,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor','m','ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=4;
@@ -508,6 +523,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor','y','ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=5;
@@ -542,6 +561,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.3 0.9 0.1],'ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=6;
@@ -576,6 +599,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor','c','ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=7;
@@ -610,6 +637,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[1 0.6 0],'ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=8;
@@ -644,6 +675,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.5 0.5 0.5],'ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=9;
@@ -678,6 +713,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.9 1 0.7],'ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=10;
@@ -712,6 +751,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.4 0.7 0.1],'ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=11;
@@ -746,6 +789,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.7 0.1 0.5],'ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=12;
@@ -780,6 +827,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.8 0.8 0.3],'ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=13;
@@ -814,6 +865,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.3 0.5 1],'ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=14;
@@ -848,6 +903,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0 0 0],'ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=15;
@@ -882,6 +941,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.7 0.7 1],'ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=16;
@@ -916,6 +979,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.9 0.4 0.4],'ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=17;
@@ -950,6 +1017,10 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.9 0.6 0.5],'ButtonDownFcn',@boxCallbackVer2);
+        
+        d=getframe(handles.axes1)
+        assignin('base','frame',d)
+        
          if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=18;
@@ -1035,6 +1106,21 @@ function saveImage_Callback(hObject, eventdata, handles)
 % hObject    handle to saveImage (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+d=menu('Save Image for Which Plot?','Fargo, ND','Honolulu, HI','Miami, FL')
+frame=evalin('base','frame')
+switch d
+    case 1
+        [file,path] = uiputfile({'*.png'},'Save as');
+        imwrite(frame.cdata,[path,file])
+    case 2
+        [file,path] = uiputfile({'*.png'},'Save as');
+        imwrite(frame.cdata,[path,file])
+        
+    case 3
+        [file,path] = uiputfile({'*.png'},'Save as');
+        imwrite(frame.cdata,[path,file])
+end
+
 
 
 % --- Executes on button press in printMaterials.
