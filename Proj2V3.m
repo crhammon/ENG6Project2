@@ -22,7 +22,7 @@ function varargout = Proj2V3(varargin)
 
 % Edit the above text to modify the response to help Proj2V3
 
-% Last Modified by GUIDE v2.5 14-Mar-2017 09:51:26
+% Last Modified by GUIDE v2.5 14-Mar-2017 21:08:42
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -53,6 +53,8 @@ function Proj2V3_OpeningFcn(hObject, eventdata, handles, varargin)
 % varargin   command line arguments to Proj2V3 (see VARARGIN)
 logo=imread('Welcome.png');
 imshow(logo);
+
+assignin('base','f',0)
 
 image=imread('plot1.jpg');
 b=size([1:15:size(image,1)]);%gives number of rows
@@ -98,8 +100,7 @@ function PlotChoice_Callback(hObject, eventdata, handles)
 contents = cellstr(get(hObject,'String')); %returns popupmenu1 contents as cell array
 PlotChoice = contents{get(hObject,'Value')};%returns selected item from popupmenu1
 assignin('base','PlotChoice',PlotChoice)
-% while evalin('base','count') ~= 11
-if (strcmp(PlotChoice,'Plot 1'))
+if (strcmp(PlotChoice,'Fargo, ND'))
     cla
    
 
@@ -111,7 +112,6 @@ if (strcmp(PlotChoice,'Plot 1'))
     imshow(image);
     
 array=evalin('base','Plot1Info');
-assignin('base','numbersCrunched',[0 0;0 0;0 0;0 0;0 0;0 0])
 hold on
 for c=1:size(array,1)
 
@@ -179,14 +179,14 @@ elseif (strcmp(PlotChoice,'Home Screen'))
     cla
     logo=imread('Welcome.png');
     imshow(logo);
-elseif (strcmp(PlotChoice,'Plot 2'))
+elseif (strcmp(PlotChoice,'Honolulu, HI'))
     cla
     
     assignin('base','name','Plot2.jpg');
     
     image = imread('plot2.jpg');
-    image(:,1:15:end,:)=0;
-    image(1:15:end,:,:)=0;
+    image(:,15:15:end,:)=0;
+    image(15:15:end,:,:)=0;
     imshow(image)
     array=evalin('base','Plot2Info');
 hold on
@@ -252,21 +252,19 @@ for c=1:size(array,1)
     end
 end
     
-elseif (strcmp(PlotChoice,'Plot 3'))
+elseif (strcmp(PlotChoice,'Miami, FL'))
     cla
     
     assignin('base','name','Plot3.jpg')
     
     image = imread('plot3.jpg');
-    image(:,1:15:end,:)=0;
-    image(1:15:end,:,:)=0;
+    image(:,15:15:end,:)=0;
+    image(15:15:end,:,:)=0;
     imshow(image);
     
-    assignin('base','frame',getframe(handles.axes1))
     array=evalin('base','Plot3Info');
 hold on
 for c=1:size(array,1)
-
     for b=1:size(array,2)
         
         if array(c,b)==1
@@ -371,15 +369,16 @@ if (strcmp(EnergyChoice,'Sunforce 50048/ Amorphous Silicon/ 15 W/ 42.5in x 1.5in
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.6 0.3 1],'ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+       
+        if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=1;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=1;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=1;
             assignin('base','Plot3Info',Plot3Info);
@@ -407,15 +406,15 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor','r','ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=2;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=2;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=2;
             assignin('base','Plot3Info',Plot3Info);
@@ -441,15 +440,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor','b','ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=3;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=3;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=3;
             assignin('base','Plot3Info',Plot3Info);
@@ -475,15 +474,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor','m','ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=4;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=4;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=4;
             assignin('base','Plot3Info',Plot3Info);
@@ -509,15 +508,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor','y','ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=5;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=5;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=5;
             assignin('base','Plot3Info',Plot3Info);
@@ -543,15 +542,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.3 0.9 0.1],'ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=6;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=6;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=6;
             assignin('base','Plot3Info',Plot3Info);
@@ -577,15 +576,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor','c','ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=7;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=7;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=7;
             assignin('base','Plot3Info',Plot3Info);
@@ -611,15 +610,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[1 0.6 0],'ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=8;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=8;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=8;
             assignin('base','Plot3Info',Plot3Info);
@@ -645,15 +644,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.5 0.5 0.5],'ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=9;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=9;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=9;
             assignin('base','Plot3Info',Plot3Info);
@@ -679,15 +678,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.9 1 0.7],'ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=10;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=10;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=10;
             assignin('base','Plot3Info',Plot3Info);
@@ -713,15 +712,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.4 0.7 0.1],'ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=11;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=11;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=11;
             assignin('base','Plot3Info',Plot3Info);
@@ -747,15 +746,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.7 0.1 0.5],'ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=12;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=12;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=12;
             assignin('base','Plot3Info',Plot3Info);
@@ -781,15 +780,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.8 0.8 0.3],'ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=13;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=13;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=13;
             assignin('base','Plot3Info',Plot3Info);
@@ -815,15 +814,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.3 0.5 1],'ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=14;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=14;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=14;
             assignin('base','Plot3Info',Plot3Info);
@@ -849,15 +848,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0 0 0],'ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=15;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=15;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=15;
             assignin('base','Plot3Info',Plot3Info);
@@ -883,15 +882,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.7 0.7 1],'ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=16;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=16;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=16;
             assignin('base','Plot3Info',Plot3Info);
@@ -917,15 +916,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.9 0.4 0.4],'ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=17;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=17;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=17;
             assignin('base','Plot3Info',Plot3Info);
@@ -951,15 +950,15 @@ PlotChoice_Callback(handles.PlotChoice,eventdata,handles)
         row=ceil((y)/15);
         square=rectangle('position',[x2 y2 15 15],'PickableParts','all',...
             'visible','on','FaceColor',[0.9 0.6 0.5],'ButtonDownFcn',@boxCallbackVer2);
-        if evalin('base','PlotChoice')=='Plot 1'
+         if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
             Plot1Info=evalin('base','Plot1Info');
             Plot1Info(row,col)=18;
             assignin('base','Plot1Info',Plot1Info);
-        elseif evalin('base','PlotChoice')=='Plot 2'
+        elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
             Plot2Info=evalin('base','Plot2Info');
             Plot2Info(row,col)=18;
             assignin('base','Plot2Info',Plot2Info);
-        elseif evalin('base','PlotChoice')=='Plot 3'
+        elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
             Plot3Info=evalin('base','Plot3Info');
             Plot3Info(row,col)=18;
             assignin('base','Plot3Info',Plot3Info);
@@ -994,15 +993,15 @@ function reset_Callback(hObject, eventdata, handles)
 % hObject    handle to reset (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-if evalin('base','PlotChoice')=='Plot 1'
+ if strcmp(evalin('base','PlotChoice'),'Fargo, ND')
     Plot1Info=evalin('base','Plot1Info');
     Plot1Info(:,:)=0;
     assignin('base','Plot1Info',Plot1Info);
-elseif evalin('base','PlotChoice')=='Plot 2'
+elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
     Plot2Info=evalin('base','Plot2Info');
     Plot2Info(:,:)=0;
     assignin('base','Plot2Info',Plot2Info);
-elseif evalin('base','PlotChoice')=='Plot 3'
+elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
     Plot3Info=evalin('base','Plot3Info');
     Plot3Info(:,:)=0;
     assignin('base','Plot3Info',Plot3Info);
@@ -1043,6 +1042,539 @@ function printMaterials_Callback(hObject, eventdata, handles)
 % hObject    handle to printMaterials (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+PlotChoice2=evalin('base','PlotChoice');
+if PlotChoice2 == 'Fargo, ND'
+    Plot1Info=evalin('base','Plot1Info');
+    
+    sf500=find(Plot1Info == 1);
+    totalsf500=numel(sf500);
+    costsf500=totalsf500 * 279.95;
+    
+    sf398=find(Plot1Info == 2);
+    totalsf398=numel(sf398);
+    costsf398=totalsf398 * 499.95;
+    
+    isp5w=find(Plot1Info == 3);
+    totalisp5w=numel(isp5w);
+    costisp5w= totalisp5w * 34.95;
+    
+    isp100w=find(Plot1Info == 4);
+    totalisp100w=numel(isp100w);
+    costisp100w= totalisp100w * 319.99;
+    
+    isp30w=find(Plot1Info == 5);
+    totalisp30w=numel(isp30w);
+    costisp30w= totalisp30w *114.70;
+    
+    isp10w=find(Plot1Info == 6);
+    totalisp10w=numel(isp10w);
+    costisp10w=totalisp10w * 39.95;
+    
+    ras100=find(Plot1Info == 7);
+    totalras100=numel(ras100);
+    costras100= totalras100 * 245.99;
+    
+    epcom=find(Plot1Info == 8);
+    totalepcom=numel(epcom);
+    costepcom= totalepcom * 99.99;
+    
+    spe18=find(Plot1Info == 9);
+    totalspe18=numel(spe18);
+    costspe18= totalspe18 * 249.50;
+    
+    spt5=find(Plot1Info == 10);
+    totalspt5=numel(spt5);
+    costspt5= totalspt5 * 199.99;
+    
+    why1000=find(Plot1Info == 11);
+    totalwhy1000=numel(why1000);
+    costwhy1000= totalwhy1000 * 999.99;
+    
+    why400=find(Plot1Info == 12);
+    totalwhy400=numel(why400);
+    costwhy400= totalwhy400 * 686.40;
+    
+    wg400=find(Plot1Info == 13);
+    totalwg400=numel(wg400);
+    costwg400=totalwg400 * 399.00;
+    
+    wg700=find(Plot1Info == 14);
+    totalwg700=numel(wg700);
+    costwg700= totalwg700 *449.99;
+    
+    apwt=find(Plot1Info == 15);
+    totalapwt=numel(apwt);
+    costapwt=totalapwt * 476.93;
+    
+    sf454=find(Plot1Info == 16);
+    totalsf454=numel(sf454);
+    costsf454=totalsf454 * 749.99;
+    
+    sf444=find(Plot1Info == 17);
+    totalsf444=numel(sf444);
+    costsf444=totalsf444 * 474.34;
+    
+    wck750=find(Plot1Info == 18);
+    totalwck750=numel(wck750);
+    costwck750=totalwck750 * 999.98;
+    
+    amounttotal=totalsf500+totalsf398+totalisp5w+totalisp100w+totalisp30w+totalisp10w+totalras100+totalepcom+totalspe18+totalspt5+totalwhy1000+totalwhy400+totalwg400+totalwg700+totalapwt+totalsf454+totalsf444+totalwck750;
+    costtotal= costsf500+costsf398+ costisp5w+costisp100w+costisp30w+costisp10w+costras100+costepcom+costspe18+costspt5+costwhy1000+costwhy400+costwg400+costwg700+costapwt+costsf454+costsf444+costwck750;
+    file=fopen('Bill_Of_Materials_Plot_1','w');
+    fprintf(file,'Bill of Materials : Fargo, ND\r\n');
+    fprintf(file,'Material\t\t');
+    fprintf(file,'Amount\t\t\t\t');
+    fprintf(file,'Cost\t\t\t\r\n');
+    fprintf(file,'Sunforce 50048\t\t');
+    fprintf(file,num2str(totalsf500));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costsf500));
+    fprintf(file,'\r\n');
+    fprintf(file,'Sunforce 39810\t\t');
+    fprintf(file,num2str(totalsf398));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costsf398));
+    fprintf(file,'\r\n');
+    fprintf(file,'Instapark SPCC-5W\t');
+    fprintf(file,num2str(totalisp5w));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costisp5w));
+    fprintf(file,'\r\n');
+    fprintf(file,'Instapark SP-100W\t');
+    fprintf(file,num2str(totalisp100w));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costisp100w));
+    fprintf(file,'\r\n');
+    fprintf(file,'Instapark SPCC-30W\t');
+    fprintf(file,num2str(totalisp30w));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costisp30w));
+    fprintf(file,'\r\n');
+    fprintf(file,'Instapark SP-10w\t');
+    fprintf(file,num2str(totalisp10w));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costisp10w));
+    fprintf(file,'\r\n');
+    fprintf(file,'Rasmond 100SP\t\t');
+    fprintf(file,num2str(totalras100));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costras100));
+    fprintf(file,'\r\n');
+    fprintf(file,'Epcom Wk50-12\t\t');
+    fprintf(file,num2str(totalepcom));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costepcom));
+    fprintf(file,'\r\n');
+    fprintf(file,'Sun Power E18\t\t');
+    fprintf(file,num2str(totalspe18));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costspe18));
+    fprintf(file,'\r\n');
+    fprintf(file,'Sun Power T5\t\t');
+    fprintf(file,num2str(totalspt5));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costspt5));
+    fprintf(file,'\r\n');
+    fprintf(file,'Windmax HY1000-5\t');
+    fprintf(file,num2str(totalwhy1000));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costwhy1000));
+    fprintf(file,'\r\n');
+    fprintf(file,'Windmax HY400\t\t');
+    fprintf(file,num2str(totalwhy400));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costwhy400));
+    fprintf(file,'\r\n');
+    fprintf(file,'GudCraft WG400\t\t');
+    fprintf(file,num2str(totalwg400));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costwg400));
+    fprintf(file,'\r\n');
+    fprintf(file,'GudCraft WG700\t\t');
+    fprintf(file,num2str(totalwg700));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costwg700));
+    fprintf(file,'\r\n');
+    fprintf(file,'All Power America\t');
+    fprintf(file,num2str(totalapwt));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costapwt));
+    fprintf(file,'\r\n');
+    fprintf(file,'Sunforce 45444\t\t');
+    fprintf(file,num2str(totalsf454));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costsf454));
+    fprintf(file,'\r\n');
+    fprintf(file,'Sunforce 44444\t\t');
+    fprintf(file,num2str(totalsf444));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costsf444));
+    fprintf(file,'\r\n');
+    fprintf(file,'WindyNation WCK-750\t');
+    fprintf(file,num2str(totalwck750));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costwck750));
+    fprintf(file,'\r\n');
+    fprintf(file,'Total\t\t\t');
+    fprintf(file,num2str(amounttotal));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costtotal));
+    open('Bill_Of_Materials_Plot_1')
+elseif PlotChoice2 == 'Honolulu, HI'
+    Plot1Info=evalin('base','Plot2Info');
+    
+    sf500=find(Plot1Info == 1);
+    totalsf500=numel(sf500);
+    costsf500=totalsf500 * 279.95;
+    
+    sf398=find(Plot1Info == 2);
+    totalsf398=numel(sf398);
+    costsf398=totalsf398 * 499.95;
+    
+    isp5w=find(Plot1Info == 3);
+    totalisp5w=numel(isp5w);
+    costisp5w= totalisp5w * 34.95;
+    
+    isp100w=find(Plot1Info == 4);
+    totalisp100w=numel(isp100w);
+    costisp100w= totalisp100w * 319.99;
+    
+    isp30w=find(Plot1Info == 5);
+    totalisp30w=numel(isp30w);
+    costisp30w= totalisp30w *114.70;
+    
+    isp10w=find(Plot1Info == 6);
+    totalisp10w=numel(isp10w);
+    costisp10w=totalisp10w * 39.95;
+    
+    ras100=find(Plot1Info == 7);
+    totalras100=numel(ras100);
+    costras100= totalras100 * 245.99;
+    
+    epcom=find(Plot1Info == 8);
+    totalepcom=numel(epcom);
+    costepcom= totalepcom * 99.99;
+    
+    spe18=find(Plot1Info == 9);
+    totalspe18=numel(spe18);
+    costspe18= totalspe18 * 249.50;
+    
+    spt5=find(Plot1Info == 10);
+    totalspt5=numel(spt5);
+    costspt5= totalspt5 * 199.99;
+    
+    why1000=find(Plot1Info == 11);
+    totalwhy1000=numel(why1000);
+    costwhy1000= totalwhy1000 * 999.99;
+    
+    why400=find(Plot1Info == 12);
+    totalwhy400=numel(why400);
+    costwhy400= totalwhy400 * 686.40;
+    
+    wg400=find(Plot1Info == 13);
+    totalwg400=numel(wg400);
+    costwg400=totalwg400 * 399.00;
+    
+    wg700=find(Plot1Info == 14);
+    totalwg700=numel(wg700);
+    costwg700= totalwg700 *449.99;
+    
+    apwt=find(Plot1Info == 15);
+    totalapwt=numel(apwt);
+    costapwt=totalapwt * 476.93;
+    
+    sf454=find(Plot1Info == 16);
+    totalsf454=numel(sf454);
+    costsf454=totalsf454 * 749.99;
+    
+    sf444=find(Plot1Info == 17);
+    totalsf444=numel(sf444);
+    costsf444=totalsf444 * 474.34;
+    
+    wck750=find(Plot1Info == 18);
+    totalwck750=numel(wck750);
+    costwck750=totalwck750 * 999.98;
+    
+    amounttotal=totalsf500+totalsf398+totalisp5w+totalisp100w+totalisp30w+totalisp10w+totalras100+totalepcom+totalspe18+totalspt5+totalwhy1000+totalwhy400+totalwg400+totalwg700+totalapwt+totalsf454+totalsf444+totalwck750;
+    costtotal= costsf500+costsf398+ costisp5w+costisp100w+costisp30w+costisp10w+costras100+costepcom+costspe18+costspt5+costwhy1000+costwhy400+costwg400+costwg700+costapwt+costsf454+costsf444+costwck750;
+    file=fopen('Bill_Of_Materials_Plot_2','w');
+    fprintf(file,'Bill of Materials : Honolulu, HI\r\n');
+    fprintf(file,'Material\t\t');
+    fprintf(file,'Amount\t\t\t\t');
+    fprintf(file,'Cost\t\t\t\r\n');
+    fprintf(file,'Sunforce 50048\t\t');
+    fprintf(file,num2str(totalsf500));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costsf500));
+    fprintf(file,'\r\n');
+    fprintf(file,'Sunforce 39810\t\t');
+    fprintf(file,num2str(totalsf398));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costsf398));
+    fprintf(file,'\r\n');
+    fprintf(file,'Instapark SPCC-5W\t');
+    fprintf(file,num2str(totalisp5w));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costisp5w));
+    fprintf(file,'\r\n');
+    fprintf(file,'Instapark SP-100W\t');
+    fprintf(file,num2str(totalisp100w));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costisp100w));
+    fprintf(file,'\r\n');
+    fprintf(file,'Instapark SPCC-30W\t');
+    fprintf(file,num2str(totalisp30w));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costisp30w));
+    fprintf(file,'\r\n');
+    fprintf(file,'Instapark SP-10w\t');
+    fprintf(file,num2str(totalisp10w));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costisp10w));
+    fprintf(file,'\r\n');
+    fprintf(file,'Rasmond 100SP\t\t');
+    fprintf(file,num2str(totalras100));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costras100));
+    fprintf(file,'\r\n');
+    fprintf(file,'Epcom Wk50-12\t\t');
+    fprintf(file,num2str(totalepcom));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costepcom));
+    fprintf(file,'\r\n');
+    fprintf(file,'Sun Power E18\t\t');
+    fprintf(file,num2str(totalspe18));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costspe18));
+    fprintf(file,'\r\n');
+    fprintf(file,'Sun Power T5\t\t');
+    fprintf(file,num2str(totalspt5));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costspt5));
+    fprintf(file,'\r\n');
+    fprintf(file,'Windmax HY1000-5\t');
+    fprintf(file,num2str(totalwhy1000));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costwhy1000));
+    fprintf(file,'\r\n');
+    fprintf(file,'Windmax HY400\t\t');
+    fprintf(file,num2str(totalwhy400));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costwhy400));
+    fprintf(file,'\r\n');
+    fprintf(file,'GudCraft WG400\t\t');
+    fprintf(file,num2str(totalwg400));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costwg400));
+    fprintf(file,'\r\n');
+    fprintf(file,'GudCraft WG700\t\t');
+    fprintf(file,num2str(totalwg700));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costwg700));
+    fprintf(file,'\r\n');
+    fprintf(file,'All Power America\t');
+    fprintf(file,num2str(totalapwt));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costapwt));
+    fprintf(file,'\r\n');
+    fprintf(file,'Sunforce 45444\t\t');
+    fprintf(file,num2str(totalsf454));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costsf454));
+    fprintf(file,'\r\n');
+    fprintf(file,'Sunforce 44444\t\t');
+    fprintf(file,num2str(totalsf444));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costsf444));
+    fprintf(file,'\r\n');
+    fprintf(file,'WindyNation WCK-750\t');
+    fprintf(file,num2str(totalwck750));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costwck750));
+    fprintf(file,'\r\n');
+    fprintf(file,'Total\t\t\t');
+    fprintf(file,num2str(amounttotal));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costtotal));
+    open('Bill_Of_Materials_Plot_2')
+elseif PlotChoice2 == 'Miami, FL'
+    Plot1Info=evalin('base','Plot3Info');
+    
+    sf500=find(Plot1Info == 1);
+    totalsf500=numel(sf500);
+    costsf500=totalsf500 * 279.95;
+    
+    sf398=find(Plot1Info == 2);
+    totalsf398=numel(sf398);
+    costsf398=totalsf398 * 499.95;
+    
+    isp5w=find(Plot1Info == 3);
+    totalisp5w=numel(isp5w);
+    costisp5w= totalisp5w * 34.95;
+    
+    isp100w=find(Plot1Info == 4);
+    totalisp100w=numel(isp100w);
+    costisp100w= totalisp100w * 319.99;
+    
+    isp30w=find(Plot1Info == 5);
+    totalisp30w=numel(isp30w);
+    costisp30w= totalisp30w *114.70;
+    
+    isp10w=find(Plot1Info == 6);
+    totalisp10w=numel(isp10w);
+    costisp10w=totalisp10w * 39.95;
+    
+    ras100=find(Plot1Info == 7);
+    totalras100=numel(ras100);
+    costras100= totalras100 * 245.99;
+    
+    epcom=find(Plot1Info == 8);
+    totalepcom=numel(epcom);
+    costepcom= totalepcom * 99.99;
+    
+    spe18=find(Plot1Info == 9);
+    totalspe18=numel(spe18);
+    costspe18= totalspe18 * 249.50;
+    
+    spt5=find(Plot1Info == 10);
+    totalspt5=numel(spt5);
+    costspt5= totalspt5 * 199.99;
+    
+    why1000=find(Plot1Info == 11);
+    totalwhy1000=numel(why1000);
+    costwhy1000= totalwhy1000 * 999.99;
+    
+    why400=find(Plot1Info == 12);
+    totalwhy400=numel(why400);
+    costwhy400= totalwhy400 * 686.40;
+    
+    wg400=find(Plot1Info == 13);
+    totalwg400=numel(wg400);
+    costwg400=totalwg400 * 399.00;
+    
+    wg700=find(Plot1Info == 14);
+    totalwg700=numel(wg700);
+    costwg700= totalwg700 *449.99;
+    
+    apwt=find(Plot1Info == 15);
+    totalapwt=numel(apwt);
+    costapwt=totalapwt * 476.93;
+    
+    sf454=find(Plot1Info == 16);
+    totalsf454=numel(sf454);
+    costsf454=totalsf454 * 749.99;
+    
+    sf444=find(Plot1Info == 17);
+    totalsf444=numel(sf444);
+    costsf444=totalsf444 * 474.34;
+    
+    wck750=find(Plot1Info == 18);
+    totalwck750=numel(wck750);
+    costwck750=totalwck750 * 999.98;
+    
+    amounttotal=totalsf500+totalsf398+totalisp5w+totalisp100w+totalisp30w+totalisp10w+totalras100+totalepcom+totalspe18+totalspt5+totalwhy1000+totalwhy400+totalwg400+totalwg700+totalapwt+totalsf454+totalsf444+totalwck750;
+    costtotal= costsf500+costsf398+ costisp5w+costisp100w+costisp30w+costisp10w+costras100+costepcom+costspe18+costspt5+costwhy1000+costwhy400+costwg400+costwg700+costapwt+costsf454+costsf444+costwck750;
+    file=fopen('Bill_Of_Materials_Plot_3','w');
+    fprintf(file,'Bill of Materials : Miami, FL\r\n');
+    fprintf(file,'Material\t\t');
+    fprintf(file,'Amount\t\t\t\t');
+    fprintf(file,'Cost\t\t\t\r\n');
+    fprintf(file,'Sunforce 50048\t\t');
+    fprintf(file,num2str(totalsf500));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costsf500));
+    fprintf(file,'\r\n');
+    fprintf(file,'Sunforce 39810\t\t');
+    fprintf(file,num2str(totalsf398));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costsf398));
+    fprintf(file,'\r\n');
+    fprintf(file,'Instapark SPCC-5W\t');
+    fprintf(file,num2str(totalisp5w));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costisp5w));
+    fprintf(file,'\r\n');
+    fprintf(file,'Instapark SP-100W\t');
+    fprintf(file,num2str(totalisp100w));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costisp100w));
+    fprintf(file,'\r\n');
+    fprintf(file,'Instapark SPCC-30W\t');
+    fprintf(file,num2str(totalisp30w));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costisp30w));
+    fprintf(file,'\r\n');
+    fprintf(file,'Instapark SP-10w\t');
+    fprintf(file,num2str(totalisp10w));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costisp10w));
+    fprintf(file,'\r\n');
+    fprintf(file,'Rasmond 100SP\t\t');
+    fprintf(file,num2str(totalras100));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costras100));
+    fprintf(file,'\r\n');
+    fprintf(file,'Epcom Wk50-12\t\t');
+    fprintf(file,num2str(totalepcom));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costepcom));
+    fprintf(file,'\r\n');
+    fprintf(file,'Sun Power E18\t\t');
+    fprintf(file,num2str(totalspe18));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costspe18));
+    fprintf(file,'\r\n');
+    fprintf(file,'Sun Power T5\t\t');
+    fprintf(file,num2str(totalspt5));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costspt5));
+    fprintf(file,'\r\n');
+    fprintf(file,'Windmax HY1000-5\t');
+    fprintf(file,num2str(totalwhy1000));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costwhy1000));
+    fprintf(file,'\r\n');
+    fprintf(file,'Windmax HY400\t\t');
+    fprintf(file,num2str(totalwhy400));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costwhy400));
+    fprintf(file,'\r\n');
+    fprintf(file,'GudCraft WG400\t\t');
+    fprintf(file,num2str(totalwg400));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costwg400));
+    fprintf(file,'\r\n');
+    fprintf(file,'GudCraft WG700\t\t');
+    fprintf(file,num2str(totalwg700));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costwg700));
+    fprintf(file,'\r\n');
+    fprintf(file,'All Power America\t');
+    fprintf(file,num2str(totalapwt));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costapwt));
+    fprintf(file,'\r\n');
+    fprintf(file,'Sunforce 45444\t\t');
+    fprintf(file,num2str(totalsf454));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costsf454));
+    fprintf(file,'\r\n');
+    fprintf(file,'Sunforce 44444\t\t');
+    fprintf(file,num2str(totalsf444));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costsf444));
+    fprintf(file,'\r\n');
+    fprintf(file,'WindyNation WCK-750\t');
+    fprintf(file,num2str(totalwck750));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costwck750));
+    fprintf(file,'\r\n');
+    fprintf(file,'Total\t\t\t');
+    fprintf(file,num2str(amounttotal));
+    fprintf(file,'\t\t\t\t');
+    fprintf(file,num2str(costtotal));
+    open('Bill_Of_Materials_Plot_3')
+end
 
 
 % --- Executes on button press in saveData.
@@ -1050,7 +1582,7 @@ function saveData_Callback(hObject, eventdata, handles)
 % hObject    handle to saveData (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-d=menu('Save Data for Which Plot?','Plot 1','Plot 2','Plot 3')
+d=menu('Save Data for Which Plot?','Fargo, ND','Honolulu, HI','Miami, FL')
 switch d
     case 1
         [file,path] = uiputfile({'*.mat';'*.txt'},'Save as');
@@ -1107,4 +1639,28 @@ function wisdom_Callback(hObject, eventdata, handles)
 % hObject    handle to wisdom (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
+f=evalin('base','f')
+f=f+1
+assignin('base','f',f)
+if f==1
+    msgbox('"You''re braver than you believe, and stronger than you seem, and smarter than you think." -A.A. Milne')
+elseif f==2
+    msgbox('"If you have knowledge, let others light their candles in it." -Margaret Fuller')
+elseif f==3
+    msgbox('"You just keep moving forward and doing what you do" -Octavia Spencer')
+elseif f==4
+    msgbox('"One''s philosophy is not best expressed in words; it is expressed in the choices one makes." -Eleanor Roosevelt')
+elseif f==5
+    msgbox('"You may not be there yet, but you''re closer than yesterday." -Unknown')
+elseif f==6
+    msgbox('"Don''t allow yourself to be held hostage by the opinion of others." -Laurie Buchanan')
+elseif f==7
+    msgbox('"Don''t stress. Do your best. Forget the rest" -Unknown')
+elseif f==8
+    msgbox('"Everybody wants happiness, nobody wants pain. But you can''t have a rainbow without a little rain." -Anonymous')
+elseif f==9
+    msgbox('"Believe you can and you''re halfway there." -Theodore Roosevelt')   
+end
+if f>8
+    assignin('base','f',0)
+end
