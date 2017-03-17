@@ -168,7 +168,7 @@ function reset_Callback(hObject, eventdata, handles)
     set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
     set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
     set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-    set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+    set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
     set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
     set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
     set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
@@ -189,7 +189,7 @@ elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
     set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
     set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
     set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-    set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+    set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
     set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
     set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
     set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
@@ -210,7 +210,7 @@ elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
     set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
     set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
     set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-    set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+    set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
     set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
     set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
     set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
@@ -1151,15 +1151,15 @@ if (strcmp(EnergyChoice,'Sunforce 50048/ Amorphous Silicon/ 15 W/ 42.5in x 1.5in
                 assignin('base','Plot1Info',Plot1Info);
                 
                 updateSolar(1)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot1SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot1Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot1SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
+                
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -1167,15 +1167,15 @@ if (strcmp(EnergyChoice,'Sunforce 50048/ Amorphous Silicon/ 15 W/ 42.5in x 1.5in
                 assignin('base','Plot2Info',Plot2Info);
                 
                 updateSolar(2)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot2SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot2SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot2Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot2SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
+
                 
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -1183,15 +1183,15 @@ if (strcmp(EnergyChoice,'Sunforce 50048/ Amorphous Silicon/ 15 W/ 42.5in x 1.5in
                 assignin('base','Plot3Info',Plot3Info);
                 
                 updateSolar(3)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot3SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot3SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot3Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot3SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
+                
             
             end
         end
@@ -1236,15 +1236,15 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
                 assignin('base','Plot1Info',Plot1Info);
                 
                 updateSolar(1)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot1SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot1Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot1SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -1252,15 +1252,14 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
                 assignin('base','Plot2Info',Plot2Info);
                 
                 updateSolar(2)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot2SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot2SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot2Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot2SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
                 
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -1268,15 +1267,14 @@ elseif (strcmp(EnergyChoice,'Sunforce 39810/ Polycrystalline / 80 W/ 21in x 48in
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateSolar(3)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot3SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot3SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot3Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot3SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -1321,15 +1319,14 @@ elseif (strcmp(EnergyChoice,'Instapark SPCC-5W/ Mono-crystalline/ 5 W/ 11in x 8i
                 assignin('base','Plot1Info',Plot1Info);
                 
                 updateSolar(1)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot1SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot1Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot1SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -1337,15 +1334,14 @@ elseif (strcmp(EnergyChoice,'Instapark SPCC-5W/ Mono-crystalline/ 5 W/ 11in x 8i
                 assignin('base','Plot2Info',Plot2Info);
                 
                 updateSolar(2)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot2SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot2SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot2Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot2SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
                 
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -1353,15 +1349,14 @@ elseif (strcmp(EnergyChoice,'Instapark SPCC-5W/ Mono-crystalline/ 5 W/ 11in x 8i
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateSolar(3)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot3SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot3SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot3Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot3SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -1405,15 +1400,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot1Info',Plot1Info);
                 
                 updateSolar(1)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot1SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot1Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot1SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -1421,15 +1415,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot2Info',Plot2Info);
                 
                 updateSolar(2)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot2SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot2SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot2Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot2SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
                                 
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -1437,15 +1430,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateSolar(3)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot3SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot3SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot3Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot3SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -1488,15 +1480,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot1Info',Plot1Info);
                 
                 updateSolar(1)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot1SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot1Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot1SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -1504,15 +1495,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot2Info',Plot2Info);
                 
                 updateSolar(2)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot2SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot2SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot2Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot2SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
                 
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -1520,15 +1510,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateSolar(3)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot3SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot3SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot3Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot3SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -1571,15 +1560,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot1Info',Plot1Info);
                 
                 updateSolar(1)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot1SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot1Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot1SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -1587,15 +1575,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot2Info',Plot2Info);
                 
                 updateSolar(2)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot2SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot2SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot2Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot2SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
                 
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -1603,15 +1590,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateSolar(3)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot3SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot3SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot3Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot3SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -1654,15 +1640,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot1Info',Plot1Info);
                 
                 updateSolar(1)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot1SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot1Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot1SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -1670,15 +1655,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot2Info',Plot2Info);
                 
                 updateSolar(2)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot2SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot2SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot2Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot2SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
                 
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -1686,15 +1670,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateSolar(3)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot3SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot3SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot3Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot3SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -1736,15 +1719,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot1Info',Plot1Info);
                 
                 updateSolar(1)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot1SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot1Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot1SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -1752,15 +1734,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot2Info',Plot2Info);
                 
                 updateSolar(2)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot2SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot2SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot2Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot2SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
                 
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -1768,15 +1749,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateSolar(3)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot3SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot3SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot3Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot3SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -1818,15 +1798,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot1Info',Plot1Info);
                 
                 updateSolar(1)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot1SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot1Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot1SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -1834,15 +1813,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot2Info',Plot2Info);
                 
                 updateSolar(2)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot2SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot2SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot2Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot2SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
                 
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -1850,16 +1828,15 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateSolar(3)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot3SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot3SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot3Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot3SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
-            
+                
             end
         end
         end
@@ -1900,15 +1877,13 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot1Info',Plot1Info);
                 
                 updateSolar(1)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot1SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot1Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot1SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
-                set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -1916,15 +1891,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot2Info',Plot2Info);
                  
                 updateSolar(2)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot2SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot2SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot2Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot2SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -1932,15 +1906,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateSolar(3)
-                set(handles.SolarPower,'String',strcat(num2str(evalin('base','SolarPower')),' kW hr'))
-                set(handles.SolarCost,'String',num2str(evalin('base','SolarCost')))
-                set(handles.PanelAmount,'String',num2str(evalin('base','PanelAmount')))
-                set(handles.SolarArea,'String',num2str(evalin('base','SolarArea')))
+                set(handles.SolarPower,'String',strcat(num2str(evalin('base','Plot3SolarPower')),' kW hr'))
+                set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot3SolarCost'))))
+                set(handles.PanelAmount,'String',num2str(evalin('base','Plot3Panel')))
+                set(handles.SolarArea,'String',strcat(num2str(evalin('base','Plot3SolarArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -1982,15 +1955,15 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot1Info',Plot1Info);
                  
                 updateWind(1);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot1WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot1WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot1Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot1WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
+                
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -1998,15 +1971,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot2Info',Plot2Info);
                  
                 updateWind(2);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot2WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot2WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot2Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot2WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
                        
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -2014,15 +1986,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateWind(3);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot3WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot3WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot3Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot3WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -2064,15 +2035,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot1Info',Plot1Info);
                  
                 updateWind(1);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot1WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot1WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot1Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot1WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -2080,15 +2050,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot2Info',Plot2Info);
                  
                 updateWind(2);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot2WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot2WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot2Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot2WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -2096,15 +2065,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateWind(3);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot3WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot3WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot3Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot3WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -2146,15 +2114,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot1Info',Plot1Info);
                  
                 updateWind(1);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot1WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot1WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot1Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot1WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -2162,15 +2129,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot2Info',Plot2Info);
                  
                 updateWind(2);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot2WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot2WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot2Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot2WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -2178,15 +2144,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateWind(3);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot3WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot3WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot3Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot3WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -2228,15 +2193,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot1Info',Plot1Info);
                  
                 updateWind(1);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot1WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot1WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot1Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot1WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -2244,15 +2208,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot2Info',Plot2Info);
                  
                 updateWind(2);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot2WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot2WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot2Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot2WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -2260,15 +2223,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateWind(3);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot3WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot3WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot3Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot3WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -2310,15 +2272,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot1Info',Plot1Info);
                  
                 updateWind(1);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot1WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot1WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot1Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot1WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -2326,15 +2287,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot2Info',Plot2Info);
                  
                 updateWind(2);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot2WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot2WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot2Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot2WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -2342,15 +2302,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateWind(3);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot3WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot3WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot3Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot3WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -2392,15 +2351,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot1Info',Plot1Info);
                  
                 updateWind(1);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot1WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot1WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot1Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot1WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -2408,15 +2366,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot2Info',Plot2Info);
                  
                 updateWind(2);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot2WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot2WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot2Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot2WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -2424,15 +2381,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateWind(3);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot3WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot3WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot3Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot3WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -2474,15 +2430,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot1Info',Plot1Info);
                  
                 updateWind(1);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot1WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot1WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot1Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot1WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -2490,15 +2445,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot2Info',Plot2Info);
                  
                 updateWind(2);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot2WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot2WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot2Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot2WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -2506,15 +2460,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateWind(3);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot3WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot3WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot3Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot3WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -2556,15 +2509,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot1Info',Plot1Info);
                  
                 updateWind(1);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot1WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot1WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot1Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot1WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Honolulu, HI')
                 Plot2Info=evalin('base','Plot2Info');
@@ -2572,15 +2524,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot2Info',Plot2Info);
                  
                 updateWind(2);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot2WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot2WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot2Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot2WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             elseif strcmp(evalin('base','PlotChoice'),'Miami, FL')
                 Plot3Info=evalin('base','Plot3Info');
@@ -2588,15 +2539,14 @@ plotChoice_Callback(handles.plotChoice,eventdata,handles)
                 assignin('base','Plot3Info',Plot3Info);
                  
                 updateWind(3);
-                set(handles.WindPower,'String',strcat(num2str(evalin('base','WindPower')),' kW hr'))
-                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','WindCost'))))
-                set(handles.TurbAmount,'String',num2str(evalin('base','TurbAmount')))
-                set(handles.WindArea,'String',strcat(num2str(evalin('base','WindArea')),' m^2'))
+                set(handles.WindPower,'String',strcat(num2str(evalin('base','Plot3WindPower')),' kW hr'))
+                set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot3WindCost'))))
+                set(handles.TurbAmount,'String',num2str(evalin('base','Plot3Turb')))
+                set(handles.WindArea,'String',strcat(num2str(evalin('base','Plot3WindArea')),' m^2'))
                 set(handles.TotalItems,'String',num2str(evalin('base','TotalItems')))
-                set(handles.TotalPower,'String',num2str(evalin('base','TotalPower')))
+                set(handles.TotalPower,'String',strcat(num2str(evalin('base','TotalPower')),' kW hr'))
                 set(handles.TotalCost,'String',strcat('$ ',num2str(evalin('base','TotalCost'))))
                 set(handles.TotalArea,'String',strcat(num2str(evalin('base','SolarArea')+evalin('base','WindArea')),' m^2'))
-                set(handles.TotalCost,'String',num2str(evalin('base','TotalCost')))
             
             end
         end
@@ -2643,10 +2593,10 @@ if (strcmp(PlotChoice,'Fargo, ND'))
     set(handles.SolarArea,'String', strcat(num2str(evalin('base','Plot1SolarArea')),' m^2'))
     set(handles.SolarPower,'String', strcat(num2str(evalin('base','Plot1SolarPower')),' kW hr'))
     set(handles.PanelAmount,'String',num2str(evalin('base','Plot1Panel')))
-    set(handles.SolarCost,'String',strcat('$ ',num2str(evalin('base','Plot1SolarCost'))))
+    set(handles.SolarCost,'String',strcat('$ ',strcat(num2str(evalin('base','TotalPower')),' kW hr')))
     
     set(handles.WindArea,'String', strcat(num2str(evalin('base','Plot1WindArea')),' m^2'))
-    set(handles.WindPower,'String', num2str(evalin('base','Plot1WindPower')))
+    set(handles.WindPower,'String', strcat(num2str(evalin('base','Plot1WindPower')),' kW hr'))
     set(handles.TurbAmount,'String',num2str(evalin('base','Plot1Turb')))
     set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot1WindCost'))))
     
@@ -2656,8 +2606,8 @@ if (strcmp(PlotChoice,'Fargo, ND'))
     assignin('base','name','Plot1.jpg');
     
     image = imread('plot1.png');
-%     image(:,15:15:end,:)=0;
-%     image(15:15:end,:,:)=0;
+    image(:,15:15:end,:)=0;
+    image(15:15:end,:,:)=0;
     imshow(image);
 
     
@@ -2732,26 +2682,26 @@ elseif (strcmp(PlotChoice,'Home Screen'))
 elseif (strcmp(PlotChoice,'Honolulu, HI'))
     cla
     
-    set(handles.SolarArea,'String', num2str(evalin('base','Plot2SolarArea')))
-    set(handles.SolarPower,'String', num2str(evalin('base','Plot2SolarPower')))
+    set(handles.SolarArea,'String', strcat(num2str(evalin('base','Plot2SolarArea')),' m^2'))
+    set(handles.SolarPower,'String', strcat(num2str(evalin('base','Plot2SolarPower')),' kW hr'))
     set(handles.PanelAmount,'String',num2str(evalin('base','Plot2Panel')))
-    set(handles.SolarCost,'String',num2str(evalin('base','Plot2SolarCost')))
+    set(handles.SolarCost,'String',strcat('$ ',strcat('$ ',num2str(evalin('base','Plot2SolarCost')))))
     
-    set(handles.WindArea,'String', num2str(evalin('base','Plot2WindArea')))
-    set(handles.WindPower,'String', num2str(evalin('base','Plot2WindPower')))
+    set(handles.WindArea,'String', strcat(num2str(evalin('base','Plot2WindArea')),' m^2'))
+    set(handles.WindPower,'String', strcat(num2str(evalin('base','Plot2WindPower')),' kW hr'))
     set(handles.TurbAmount,'String',num2str(evalin('base','Plot2Turb')))
-    set(handles.WindCost,'String',num2str(evalin('base','Plot2WindCost')))
+    set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot2WindCost'))))
     
     assignin('base','SolarAvg',evalin('base','HonoluluSolarAvg'))
     assignin('base','WindAvg',evalin('base','HonoluluWindAvg'))
     
     assignin('base','name','Plot2.jpg');
     
-%     image = imread('Plot2.png');
-%     image(:,15:15:end,:)=0;
-%     image(15:15:end,:,:)=0;
-%     imshow(image)
-    imshow(imread('Plot2.png'))
+    image = imread('Plot2.png');
+    image(:,15:15:end,:)=0;
+    image(15:15:end,:,:)=0;
+    imshow(image)
+    
     array=evalin('base','Plot2Info');
 hold on
 for c=1:size(array,1)
@@ -2819,26 +2769,26 @@ end
 elseif (strcmp(PlotChoice,'Miami, FL'))
     cla
     
-    set(handles.SolarArea,'String', num2str(evalin('base','Plot3SolarArea')))
-    set(handles.SolarPower,'String', num2str(evalin('base','Plot3SolarPower')))
+    set(handles.SolarArea,'String', strcat(num2str(evalin('base','Plot3SolarArea')),' m^2'))
+    set(handles.SolarPower,'String', strcat(num2str(evalin('base','Plot3SolarPower')),' kW hr'))
     set(handles.PanelAmount,'String',num2str(evalin('base','Plot3Panel')))
-    set(handles.SolarCost,'String',num2str(evalin('base','Plot3SolarCost')))
+    set(handles.SolarCost,'String',strcat('$ ',strcat('$ ',num2str(evalin('base','Plot3SolarCost')))))
     
-    set(handles.WindArea,'String', num2str(evalin('base','Plot3WindArea')))
-    set(handles.WindPower,'String', num2str(evalin('base','Plot3WindPower')))
+    set(handles.WindArea,'String', strcat(num2str(evalin('base','Plot3WindArea')),' m^2'))
+    set(handles.WindPower,'String', strcat(num2str(evalin('base','Plot3WindPower')),' kW hr'))
     set(handles.TurbAmount,'String',num2str(evalin('base','Plot3Turb')))
-    set(handles.WindCost,'String',num2str(evalin('base','Plot3WindCost')))
+    set(handles.WindCost,'String',strcat('$ ',num2str(evalin('base','Plot3WindCost'))))
     
     assignin('base','name','Plot3.jpg')
     
     assignin('base','SolarAvg',evalin('base','MiamiSolarAvg'))
     assignin('base','WindAvg',evalin('base','MiamiWindAvg'))
     
-%     image = imread('Plot3.png');
-%     image(:,15:15:end,:)=0;
-%     image(15:15:end,:,:)=0;
-%     imshow(image);
-    imshow(imread('Plot3.png'))
+    image = imread('Plot3.png');
+    image(:,15:15:end,:)=0;
+    image(15:15:end,:,:)=0;
+    imshow(image);
+    
     array=evalin('base','Plot3Info');
 hold on
 for c=1:size(array,1)

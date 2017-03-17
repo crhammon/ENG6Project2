@@ -169,6 +169,11 @@ assignin('base','TotalArea',evalin('base','SolarArea')+evalin('base','WindArea')
 assignin('base','PanelAmount',evalin('base','Plot1Panel')+evalin('base','Plot2Panel')+evalin('base','Plot3Panel'))
 assignin('base','TotalItems',evalin('base','PanelAmount')+evalin('base','TurbAmount'))
 assignin('base','TotalCost',evalin('base','SolarCost')+evalin('base','WindCost'))
+
+hands = evalin('base','Hands');
+CostToKW = getfield(hands,'CostToKW');
+set(CostToKW,'String',num2str(evalin('base','TotalCost')/evalin('base','TotalPower')))
+
 end
 
         
