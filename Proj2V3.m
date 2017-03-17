@@ -267,6 +267,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'Sunforce 50048\t\t');
     fprintf(file,num2str(totalsf500));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costsf500));
     fprintf(file,'\r\n');
     end
@@ -275,6 +276,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'Sunforce 39810\t\t');
     fprintf(file,num2str(totalsf398));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costsf398));
     fprintf(file,'\r\n');
     end
@@ -283,6 +285,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'Instapark SPCC-5W\t');
     fprintf(file,num2str(totalisp5w));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costisp5w));
     fprintf(file,'\r\n');
     end
@@ -291,6 +294,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'Instapark SP-100W\t');
     fprintf(file,num2str(totalisp100w));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costisp100w));
     fprintf(file,'\r\n');
     end
@@ -299,6 +303,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'Instapark SPCC-30W\t');
     fprintf(file,num2str(totalisp30w));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costisp30w));
     fprintf(file,'\r\n');
     end
@@ -307,6 +312,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'Instapark SP-10w\t');
     fprintf(file,num2str(totalisp10w));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costisp10w));
     fprintf(file,'\r\n');
     end
@@ -315,6 +321,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'Rasmond 100SP\t\t');
     fprintf(file,num2str(totalras100));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costras100));
     fprintf(file,'\r\n');
     end
@@ -323,6 +330,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'Epcom Wk50-12\t\t');
     fprintf(file,num2str(totalepcom));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costepcom));
     fprintf(file,'\r\n');
     end
@@ -331,6 +339,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'Sun Power E18\t\t');
     fprintf(file,num2str(totalspe18));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costspe18));
     fprintf(file,'\r\n');
     end
@@ -339,6 +348,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'Sun Power T5\t\t');
     fprintf(file,num2str(totalspt5));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costspt5));
     fprintf(file,'\r\n');
     end
@@ -347,6 +357,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'Windmax HY1000-5\t');
     fprintf(file,num2str(totalwhy1000));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costwhy1000));
     fprintf(file,'\r\n');
     end
@@ -355,6 +366,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'Windmax HY400\t\t');
     fprintf(file,num2str(totalwhy400));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costwhy400));
     fprintf(file,'\r\n');
     end
@@ -363,6 +375,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'GudCraft WG400\t\t');
     fprintf(file,num2str(totalwg400));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costwg400));
     fprintf(file,'\r\n');
     end
@@ -371,6 +384,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'GudCraft WG700\t\t');
     fprintf(file,num2str(totalwg700));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costwg700));
     fprintf(file,'\r\n');
     end
@@ -379,6 +393,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'All Power America\t');
     fprintf(file,num2str(totalapwt));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costapwt));
     fprintf(file,'\r\n');
     end
@@ -387,6 +402,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'Sunforce 45444\t\t');
     fprintf(file,num2str(totalsf454));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costsf454));
     fprintf(file,'\r\n');
     end
@@ -395,6 +411,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'Sunforce 44444\t\t');
     fprintf(file,num2str(totalsf444));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costsf444));
     fprintf(file,'\r\n');
     end
@@ -403,6 +420,7 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'WindyNation WCK-750\t');
     fprintf(file,num2str(totalwck750));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costwck750));
     fprintf(file,'\r\n');
     end
@@ -410,7 +428,12 @@ if name2 == 'Plot1.jpg'
     fprintf(file,'Total\t\t\t');
     fprintf(file,num2str(amounttotal));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costtotal));
+    
+    if ispc 
+        winopen(path_file)
+    end
     
     
 elseif name2 == 'Plot2.jpg'
@@ -502,6 +525,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'Sunforce 50048\t\t');
     fprintf(file,num2str(totalsf500));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costsf500));
     fprintf(file,'\r\n');
     end
@@ -510,6 +534,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'Sunforce 39810\t\t');
     fprintf(file,num2str(totalsf398));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costsf398));
     fprintf(file,'\r\n');
     end
@@ -518,6 +543,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'Instapark SPCC-5W\t');
     fprintf(file,num2str(totalisp5w));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costisp5w));
     fprintf(file,'\r\n');
     end
@@ -526,6 +552,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'Instapark SP-100W\t');
     fprintf(file,num2str(totalisp100w));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costisp100w));
     fprintf(file,'\r\n');
     end
@@ -534,6 +561,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'Instapark SPCC-30W\t');
     fprintf(file,num2str(totalisp30w));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costisp30w));
     fprintf(file,'\r\n');
     end
@@ -542,6 +570,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'Instapark SP-10w\t');
     fprintf(file,num2str(totalisp10w));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costisp10w));
     fprintf(file,'\r\n');
     end
@@ -550,6 +579,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'Rasmond 100SP\t\t');
     fprintf(file,num2str(totalras100));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costras100));
     fprintf(file,'\r\n');
     end
@@ -558,6 +588,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'Epcom Wk50-12\t\t');
     fprintf(file,num2str(totalepcom));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costepcom));
     fprintf(file,'\r\n');
     end
@@ -566,6 +597,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'Sun Power E18\t\t');
     fprintf(file,num2str(totalspe18));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costspe18));
     fprintf(file,'\r\n');
     end
@@ -574,6 +606,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'Sun Power T5\t\t');
     fprintf(file,num2str(totalspt5));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costspt5));
     fprintf(file,'\r\n');
     end
@@ -582,6 +615,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'Windmax HY1000-5\t');
     fprintf(file,num2str(totalwhy1000));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costwhy1000));
     fprintf(file,'\r\n');
     end
@@ -590,6 +624,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'Windmax HY400\t\t');
     fprintf(file,num2str(totalwhy400));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costwhy400));
     fprintf(file,'\r\n');
     end
@@ -598,6 +633,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'GudCraft WG400\t\t');
     fprintf(file,num2str(totalwg400));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costwg400));
     fprintf(file,'\r\n');
     end
@@ -606,6 +642,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'GudCraft WG700\t\t');
     fprintf(file,num2str(totalwg700));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costwg700));
     fprintf(file,'\r\n');
     end
@@ -614,6 +651,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'All Power America\t');
     fprintf(file,num2str(totalapwt));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costapwt));
     fprintf(file,'\r\n');
     end
@@ -622,6 +660,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'Sunforce 45444\t\t');
     fprintf(file,num2str(totalsf454));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costsf454));
     fprintf(file,'\r\n');
     end
@@ -630,6 +669,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'Sunforce 44444\t\t');
     fprintf(file,num2str(totalsf444));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costsf444));
     fprintf(file,'\r\n');
     end
@@ -638,6 +678,7 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'WindyNation WCK-750\t');
     fprintf(file,num2str(totalwck750));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costwck750));
     fprintf(file,'\r\n');
     end
@@ -645,7 +686,12 @@ elseif name2 == 'Plot2.jpg'
     fprintf(file,'Total\t\t\t');
     fprintf(file,num2str(amounttotal));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costtotal));
+    
+    if ispc 
+        winopen(path_file)
+    end
     
 elseif name2 == 'Plot3.jpg'
     Plot1Info=evalin('base','Plot3Info');
@@ -736,6 +782,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'Sunforce 50048\t\t');
     fprintf(file,num2str(totalsf500));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costsf500));
     fprintf(file,'\r\n');
     end
@@ -744,6 +791,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'Sunforce 39810\t\t');
     fprintf(file,num2str(totalsf398));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costsf398));
     fprintf(file,'\r\n');
     end
@@ -752,6 +800,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'Instapark SPCC-5W\t');
     fprintf(file,num2str(totalisp5w));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costisp5w));
     fprintf(file,'\r\n');
     end
@@ -760,6 +809,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'Instapark SP-100W\t');
     fprintf(file,num2str(totalisp100w));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costisp100w));
     fprintf(file,'\r\n');
     end
@@ -768,6 +818,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'Instapark SPCC-30W\t');
     fprintf(file,num2str(totalisp30w));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costisp30w));
     fprintf(file,'\r\n');
     end
@@ -776,6 +827,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'Instapark SP-10w\t');
     fprintf(file,num2str(totalisp10w));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costisp10w));
     fprintf(file,'\r\n');
     end
@@ -784,6 +836,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'Rasmond 100SP\t\t');
     fprintf(file,num2str(totalras100));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costras100));
     fprintf(file,'\r\n');
     end
@@ -792,6 +845,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'Epcom Wk50-12\t\t');
     fprintf(file,num2str(totalepcom));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costepcom));
     fprintf(file,'\r\n');
     end
@@ -800,6 +854,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'Sun Power E18\t\t');
     fprintf(file,num2str(totalspe18));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costspe18));
     fprintf(file,'\r\n');
     end
@@ -808,6 +863,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'Sun Power T5\t\t');
     fprintf(file,num2str(totalspt5));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costspt5));
     fprintf(file,'\r\n');
     end
@@ -816,6 +872,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'Windmax HY1000-5\t');
     fprintf(file,num2str(totalwhy1000));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costwhy1000));
     fprintf(file,'\r\n');
     end
@@ -824,6 +881,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'Windmax HY400\t\t');
     fprintf(file,num2str(totalwhy400));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costwhy400));
     fprintf(file,'\r\n');
     end
@@ -832,6 +890,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'GudCraft WG400\t\t');
     fprintf(file,num2str(totalwg400));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costwg400));
     fprintf(file,'\r\n');
     end
@@ -840,6 +899,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'GudCraft WG700\t\t');
     fprintf(file,num2str(totalwg700));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costwg700));
     fprintf(file,'\r\n');
     end
@@ -848,6 +908,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'All Power America\t');
     fprintf(file,num2str(totalapwt));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costapwt));
     fprintf(file,'\r\n');
     end
@@ -856,6 +917,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'Sunforce 45444\t\t');
     fprintf(file,num2str(totalsf454));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costsf454));
     fprintf(file,'\r\n');
     end
@@ -864,6 +926,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'Sunforce 44444\t\t');
     fprintf(file,num2str(totalsf444));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costsf444));
     fprintf(file,'\r\n');
     end
@@ -872,6 +935,7 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'WindyNation WCK-750\t');
     fprintf(file,num2str(totalwck750));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costwck750));
     fprintf(file,'\r\n');
     end
@@ -879,34 +943,14 @@ elseif name2 == 'Plot3.jpg'
     fprintf(file,'Total\t\t\t');
     fprintf(file,num2str(amounttotal));
     fprintf(file,'\t\t\t\t');
+    fprintf(file,'$');
     fprintf(file,num2str(costtotal));
     
-end
-catch
-end
+    if ispc 
+        winopen(path_file)
+    end
+    
 
-
-% --- Executes on button press in saveData.
-function saveData_Callback(hObject, eventdata, handles)
-% hObject    handle to saveData (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-try
-d=menu('Save Data for Which Plot?','Fargo, ND','Honolulu, HI','Miami, FL')
-switch d
-    case 1
-        [file,path] = uiputfile({'*.mat';'*.txt'},'Save as');
-        Plot1Info=evalin('base','Plot1Info');
-        save([path,file],'Plot1Info');
-    case 2
-        [file,path] = uiputfile({'*.mat';'*.txt'},'Save as');
-        Plot2Info=evalin('base','Plot2Info');
-        save([path,file],'Plot2Info');
-        
-    case 3
-        [file,path] = uiputfile({'*.mat';'*.txt'},'Save as');
-        Plot3Info=evalin('base','Plot3Info');
-        save([path,file],'Plot3Info');
 end
 catch
 end
