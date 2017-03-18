@@ -286,75 +286,75 @@ if name2 == 'Plot1.jpg'
     Plot1Info=evalin('base','Plot1Info');
     
     sf500=find(Plot1Info == 1);
-    totalsf500=numel(sf500);
+    totalsf500=numel(sf500)* 233;
     costsf500=totalsf500 * 279.95 * 233;
     
     sf398=find(Plot1Info == 2);
-    totalsf398=numel(sf398);
+    totalsf398=numel(sf398)* 155;
     costsf398=totalsf398 * 499.95 * 155;
     
     isp5w=find(Plot1Info == 3);
-    totalisp5w=numel(isp5w);
+    totalisp5w=numel(isp5w)* 1782;
     costisp5w= totalisp5w * 34.95 * 1782;
     
     isp100w=find(Plot1Info == 4);
-    totalisp100w=numel(isp100w);
+    totalisp100w=numel(isp100w)* 134;
     costisp100w= totalisp100w * 319.99 * 134;
     
     isp30w=find(Plot1Info == 5);
-    totalisp30w=numel(isp30w);
+    totalisp30w=numel(isp30w)* 429;
     costisp30w= totalisp30w *114.70 * 429;
     
     isp10w=find(Plot1Info == 6);
-    totalisp10w=numel(isp10w);
+    totalisp10w=numel(isp10w)* 1018;
     costisp10w=totalisp10w * 39.95 * 1018;
     
     ras100=find(Plot1Info == 7);
-    totalras100=numel(ras100);
+    totalras100=numel(ras100)* 153;
     costras100= totalras100 * 245.99 * 153;
     
     epcom=find(Plot1Info == 8);
-    totalepcom=numel(epcom);
+    totalepcom=numel(epcom)* 223;
     costepcom= totalepcom * 99.99 * 223;
     
     spe18=find(Plot1Info == 9);
-    totalspe18=numel(spe18);
+    totalspe18=numel(spe18)* 46;
     costspe18= totalspe18 * 249.50 * 46;
     
     spt5=find(Plot1Info == 10);
-    totalspt5=numel(spt5);
+    totalspt5=numel(spt5)* 47;
     costspt5= totalspt5 * 199.99 * 47;
     
     why1000=find(Plot1Info == 11);
-    totalwhy1000=numel(why1000);
+    totalwhy1000=numel(why1000)* 1;
     costwhy1000= totalwhy1000 * 999.99 * 1;
     
     why400=find(Plot1Info == 12);
-    totalwhy400=numel(why400);
+    totalwhy400=numel(why400)* 1;
     costwhy400= totalwhy400 * 686.40 * 1;
     
     wg400=find(Plot1Info == 13);
-    totalwg400=numel(wg400);
+    totalwg400=numel(wg400)* 1;
     costwg400=totalwg400 * 399.00 * 1;
     
     wg700=find(Plot1Info == 14);
-    totalwg700=numel(wg700);
+    totalwg700=numel(wg700)* 1;
     costwg700= totalwg700 *449.99 * 1;
     
     apwt=find(Plot1Info == 15);
-    totalapwt=numel(apwt);
+    totalapwt=numel(apwt)* 1;
     costapwt=totalapwt * 476.93 * 1;
     
     sf454=find(Plot1Info == 16);
-    totalsf454=numel(sf454);
+    totalsf454=numel(sf454)* 1;
     costsf454=totalsf454 * 749.99 * 1;
     
     sf444=find(Plot1Info == 17);
-    totalsf444=numel(sf444);
+    totalsf444=numel(sf444)* 1;
     costsf444=totalsf444 * 474.34 * 1;
     
     wck750=find(Plot1Info == 18);
-    totalwck750=numel(wck750);
+    totalwck750=numel(wck750) * 1;
     costwck750=totalwck750 * 999.98 * 1;
     
     amounttotal=totalsf500+totalsf398+totalisp5w+totalisp100w+totalisp30w+totalisp10w+totalras100+totalepcom+totalspe18+totalspt5+totalwhy1000+totalwhy400+totalwg400+totalwg700+totalapwt+totalsf454+totalsf444+totalwck750;
@@ -521,75 +521,75 @@ elseif name2 == 'Plot2.jpg'
     Plot1Info=evalin('base','Plot2Info');
     
     sf500=find(Plot1Info == 1);
-    totalsf500=numel(sf500);
+    totalsf500=numel(sf500)* 233;
     costsf500=totalsf500 * 279.95 * 233;
     
     sf398=find(Plot1Info == 2);
-    totalsf398=numel(sf398);
+    totalsf398=numel(sf398) * 155;
     costsf398=totalsf398 * 499.95 * 155;
     
     isp5w=find(Plot1Info == 3);
-    totalisp5w=numel(isp5w);
+    totalisp5w=numel(isp5w)* 1782;
     costisp5w= totalisp5w * 34.95 * 1782;
     
     isp100w=find(Plot1Info == 4);
-    totalisp100w=numel(isp100w);
+    totalisp100w=numel(isp100w)* 134;
     costisp100w= totalisp100w * 319.99 * 134;
     
     isp30w=find(Plot1Info == 5);
-    totalisp30w=numel(isp30w);
+    totalisp30w=numel(isp30w)* 429;
     costisp30w= totalisp30w *114.70 * 429;
     
     isp10w=find(Plot1Info == 6);
-    totalisp10w=numel(isp10w);
+    totalisp10w=numel(isp10w)* 1018;
     costisp10w=totalisp10w * 39.95 * 1018;
     
     ras100=find(Plot1Info == 7);
-    totalras100=numel(ras100);
+    totalras100=numel(ras100) * 153;
     costras100= totalras100 * 245.99 * 153;
     
     epcom=find(Plot1Info == 8);
-    totalepcom=numel(epcom);
+    totalepcom=numel(epcom)* 223;
     costepcom= totalepcom * 99.99 * 223;
     
     spe18=find(Plot1Info == 9);
-    totalspe18=numel(spe18);
+    totalspe18=numel(spe18)* 46;
     costspe18= totalspe18 * 249.50 * 46;
     
     spt5=find(Plot1Info == 10);
-    totalspt5=numel(spt5);
+    totalspt5=numel(spt5)* 47;
     costspt5= totalspt5 * 199.99 * 47;
     
     why1000=find(Plot1Info == 11);
-    totalwhy1000=numel(why1000);
+    totalwhy1000=numel(why1000)* 1;
     costwhy1000= totalwhy1000 * 999.99 * 1;
     
     why400=find(Plot1Info == 12);
-    totalwhy400=numel(why400);
+    totalwhy400=numel(why400)* 1;
     costwhy400= totalwhy400 * 686.40 * 1;
     
     wg400=find(Plot1Info == 13);
-    totalwg400=numel(wg400);
+    totalwg400=numel(wg400)* 1;
     costwg400=totalwg400 * 399.00 * 1;
     
     wg700=find(Plot1Info == 14);
-    totalwg700=numel(wg700);
+    totalwg700=numel(wg700)* 1;
     costwg700= totalwg700 *449.99 * 1;
     
     apwt=find(Plot1Info == 15);
-    totalapwt=numel(apwt);
+    totalapwt=numel(apwt)* 1;
     costapwt=totalapwt * 476.93 * 1;
     
     sf454=find(Plot1Info == 16);
-    totalsf454=numel(sf454);
+    totalsf454=numel(sf454)* 1;
     costsf454=totalsf454 * 749.99 * 1;
     
     sf444=find(Plot1Info == 17);
-    totalsf444=numel(sf444);
+    totalsf444=numel(sf444)* 1;
     costsf444=totalsf444 * 474.34 * 1;
     
     wck750=find(Plot1Info == 18);
-    totalwck750=numel(wck750);
+    totalwck750=numel(wck750)* 1;
     costwck750=totalwck750 * 999.98 * 1;
     
     amounttotal=totalsf500+totalsf398+totalisp5w+totalisp100w+totalisp30w+totalisp10w+totalras100+totalepcom+totalspe18+totalspt5+totalwhy1000+totalwhy400+totalwg400+totalwg700+totalapwt+totalsf454+totalsf444+totalwck750;
@@ -755,75 +755,75 @@ elseif name2 == 'Plot3.jpg'
     Plot1Info=evalin('base','Plot3Info');
     
     sf500=find(Plot1Info == 1);
-    totalsf500=numel(sf500);
+    totalsf500=numel(sf500) * 233;
     costsf500=totalsf500 * 279.95 * 233;
     
     sf398=find(Plot1Info == 2);
-    totalsf398=numel(sf398);
+    totalsf398=numel(sf398)* 155;
     costsf398=totalsf398 * 499.95 * 155;
     
     isp5w=find(Plot1Info == 3);
-    totalisp5w=numel(isp5w);
+    totalisp5w=numel(isp5w)* 1782;
     costisp5w= totalisp5w * 34.95 * 1782;
     
     isp100w=find(Plot1Info == 4);
-    totalisp100w=numel(isp100w);
+    totalisp100w=numel(isp100w)* 134;
     costisp100w= totalisp100w * 319.99 * 134;
     
     isp30w=find(Plot1Info == 5);
-    totalisp30w=numel(isp30w);
+    totalisp30w=numel(isp30w)* 429;
     costisp30w= totalisp30w *114.70 * 429;
     
     isp10w=find(Plot1Info == 6);
-    totalisp10w=numel(isp10w);
+    totalisp10w=numel(isp10w)* 1018;
     costisp10w=totalisp10w * 39.95 * 1018;
     
     ras100=find(Plot1Info == 7);
-    totalras100=numel(ras100);
+    totalras100=numel(ras100)* 153;
     costras100= totalras100 * 245.99 * 153;
     
     epcom=find(Plot1Info == 8);
-    totalepcom=numel(epcom);
+    totalepcom=numel(epcom)* 223;
     costepcom= totalepcom * 99.99 * 223;
     
     spe18=find(Plot1Info == 9);
-    totalspe18=numel(spe18);
+    totalspe18=numel(spe18) * 46;
     costspe18= totalspe18 * 249.50 * 46;
     
     spt5=find(Plot1Info == 10);
-    totalspt5=numel(spt5);
+    totalspt5=numel(spt5)* 47;
     costspt5= totalspt5 * 199.99 * 47;
     
     why1000=find(Plot1Info == 11);
-    totalwhy1000=numel(why1000);
+    totalwhy1000=numel(why1000)* 1;
     costwhy1000= totalwhy1000 * 999.99 * 1;
     
     why400=find(Plot1Info == 12);
-    totalwhy400=numel(why400);
+    totalwhy400=numel(why400)* 1;
     costwhy400= totalwhy400 * 686.40 * 1;
     
     wg400=find(Plot1Info == 13);
-    totalwg400=numel(wg400);
+    totalwg400=numel(wg400)* 1;
     costwg400=totalwg400 * 399.00 * 1;
     
     wg700=find(Plot1Info == 14);
-    totalwg700=numel(wg700);
+    totalwg700=numel(wg700)* 1;
     costwg700= totalwg700 *449.99 * 1;
     
     apwt=find(Plot1Info == 15);
-    totalapwt=numel(apwt);
+    totalapwt=numel(apwt)* 1;
     costapwt=totalapwt * 476.93 * 1;
     
     sf454=find(Plot1Info == 16);
-    totalsf454=numel(sf454);
+    totalsf454=numel(sf454)* 1;
     costsf454=totalsf454 * 749.99 * 1;
     
     sf444=find(Plot1Info == 17);
-    totalsf444=numel(sf444);
+    totalsf444=numel(sf444)* 1;
     costsf444=totalsf444 * 474.34 * 1;
     
     wck750=find(Plot1Info == 18);
-    totalwck750=numel(wck750);
+    totalwck750=numel(wck750)* 1;
     costwck750=totalwck750 * 999.98 * 1;
     
     amounttotal=totalsf500+totalsf398+totalisp5w+totalisp100w+totalisp30w+totalisp10w+totalras100+totalepcom+totalspe18+totalspt5+totalwhy1000+totalwhy400+totalwg400+totalwg700+totalapwt+totalsf454+totalsf444+totalwck750;
